@@ -8,7 +8,8 @@ import java.util.Comparator;
 import org.apache.commons.collections.map.MultiKeyMap;
 
 /**
- * @author tsoto Use this code at your own risk ;)
+ * 
+ * @author kat
  */
 public class TabuSearch {
 
@@ -55,7 +56,6 @@ public class TabuSearch {
         return bestSolution;
     }
 
-    //swaps two cities
     public ArrayList<Ciudad> swapOperator(int city1, int city2, ArrayList<Ciudad> solution) {
         ArrayList<Ciudad> auxSolution = solution;
         Ciudad temp = auxSolution.get(city1);        
