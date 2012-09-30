@@ -11,137 +11,97 @@ import java.util.Date;
  * @author kat
  */
 public class Vuelo {
-    
-  /*  -Código Ciudad Inicio
--Código Ciudad Destino
--Capacidad de carga
--Capacidad disponible
--Fecha Partida
--Fecha Llegada
--Duración
--Fecha Partida Real
--Fecha Llegada Real
--Costo por paquete
--Estado*/
-        
-    private int vuelo;
-    private int ciudadOrigen;
-    private int ciudadDestino;
-    private Date fechaSalida;
-    private Date fechaLlegada;
-    private Double costo;
-    private int capacidad;
+    private String codVuelo;
+    private int codigoCiudadOrigen;
+    private int codigoCiudadDestino;
+    private int capacidadCarga;
     private int capacidadDisponible;
-
-    /**
-     * @return the vuelo
-     */
-    public int getVuelo() {
-        return vuelo;
+    private Date FechaPartida;
+    private Date fechaLlegada;
+    private double duracion;
+    private double costoPorPaquete;
+    private String codigoEstado;
+    
+    public Vuelo() {
     }
 
-    /**
-     * @param vuelo the vuelo to set
-     */
-    public void setVuelo(int vuelo) {
-        this.vuelo = vuelo;
+    public String getCodVuelo() {
+        return codVuelo;
     }
 
-    /**
-     * @return the ciudadOrigen
-     */
-    public int getCiudadOrigen() {
-        return ciudadOrigen;
+    public int getCodigoCiudadOrigen() {
+        return codigoCiudadOrigen;
     }
 
-    /**
-     * @param ciudadOrigen the ciudadOrigen to set
-     */
-    public void setCiudadOrigen(int ciudadOrigen) {
-        this.ciudadOrigen = ciudadOrigen;
+    public int getCodigoCiudadDestino() {
+        return codigoCiudadDestino;
     }
 
-    /**
-     * @return the ciudadDestino
-     */
-    public int getCiudadDestino() {
-        return ciudadDestino;
+    public int getCapacidadCarga() {
+        return capacidadCarga;
     }
 
-    /**
-     * @param ciudadDestino the ciudadDestino to set
-     */
-    public void setCiudadDestino(int ciudadDestino) {
-        this.ciudadDestino = ciudadDestino;
-    }
-
-    /**
-     * @return the fechaSalida
-     */
-    public Date getFechaSalida() {
-        return fechaSalida;
-    }
-
-    /**
-     * @param fechaSalida the fechaSalida to set
-     */
-    public void setFechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
-
-    /**
-     * @return the fechaLlegada
-     */
-    public Date getFechaLlegada() {
-        return fechaLlegada;
-    }
-
-    /**
-     * @param fechaLlegada the fechaLlegada to set
-     */
-    public void setFechaLlegada(Date fechaLlegada) {
-        this.fechaLlegada = fechaLlegada;
-    }
-
-    /**
-     * @return the costo
-     */
-    public Double getCosto() {
-        return costo;
-    }
-
-    /**
-     * @param costo the costo to set
-     */
-    public void setCosto(Double costo) {
-        this.costo = costo;
-    }
-
-    /**
-     * @return the capacidad
-     */
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    /**
-     * @param capacidad the capacidad to set
-     */
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
-
-    /**
-     * @return the capacidadDisponible
-     */
     public int getCapacidadDisponible() {
         return capacidadDisponible;
     }
 
-    /**
-     * @param capacidadDisponible the capacidadDisponible to set
-     */
+    public Date getFechaPartida() {
+        return FechaPartida;
+    }
+
+    public Date getFechaLlegada() {
+        return fechaLlegada;
+    }
+
+    public double getDuracion() {
+        return duracion;
+    }
+
+    public double getCostoPorPaquete() {
+        return costoPorPaquete;
+    }
+
+    public String getCodigoEstado() {
+        return codigoEstado;
+    }
+
+    public void setCodVuelo(String codVuelo) {
+        this.codVuelo = codVuelo;
+    }
+
+    public void setCodigoCiudadOrigen(int codigoCiudadOrigen) {
+        this.codigoCiudadOrigen = codigoCiudadOrigen;
+    }
+
+    public void setCodigoCiudadDestino(int codigoCiudadDestino) {
+        this.codigoCiudadDestino = codigoCiudadDestino;
+    }
+
+    public void setCapacidadCarga(int capacidadCarga) {
+        this.capacidadCarga = capacidadCarga;
+    }
+
     public void setCapacidadDisponible(int capacidadDisponible) {
         this.capacidadDisponible = capacidadDisponible;
+    }
+
+    public void setFechaPartida(Date FechaPartida) {
+        this.FechaPartida = FechaPartida;
+    }
+
+    public void setFechaLlegada(Date fechaLlegada) {
+        this.fechaLlegada = fechaLlegada;
+    }
+
+    public void setDuracion(double duracion) {
+        this.duracion = duracion;
+    } 
+
+    public void setCostoPorPaquete(double costoPorPaquete) {
+        this.costoPorPaquete = costoPorPaquete;
+    }
+
+    public void setCodigoEstado(String codigoEstado) {
+        this.codigoEstado = codigoEstado;
     }
 }

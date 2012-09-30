@@ -17,30 +17,33 @@ public class TabuSearch {
     private int nroIteraciones;
     private int penalidad;
     private Envio envio;
+    private TabuList tabuList;
 
-    public ArrayList<Ciudad> getBestNeighbour(TabuList tabuList, TSPEnvironment tspEnviromnet,
-            ArrayList<Ciudad> initSolution, Envio envio) {
+    public Double getObjectiveFunctionValue(Envio envio, ArrayList<Ciudad> solution){      
+        Double cost = 0.0;
+        return cost;    
+        
+    }
+     
+    public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution, Envio envio) {
 
         ArrayList<Ciudad> bestSolution = initSolution;
-        Double bestCost = tspEnviromnet.getObjectiveFunctionValue(envio, initSolution);
+        Double bestCost = getObjectiveFunctionValue(envio, initSolution);
         int city1 = 0;
         int city2 = 0;
-        boolean firstNeighbor = true;
 
         for (int i = 1; i < bestSolution.size() - 1; i++) {
-            for (int j = 2; j < bestSolution.size() - 1; j++) {
+            for (int j = 2; j < bestSolution.size() - 1; j++) {                
                 if (i == j) {
                     continue;
                 }
+                //ArrayList<Ciudad> newBestSol = bestSolution; //this is the best Solution So Far
 
-                ArrayList<Ciudad> newBestSol = bestSolution; //this is the best Solution So Far
+                ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
 
-                newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
-                // , maybe we get a bettersolution
-                double newBestCost = tspEnviromnet.getObjectiveFunctionValue(envio, newBestSol);
+                double newBestCost = getObjectiveFunctionValue(envio, newBestSol);
 
-                if ((newBestCost < bestCost || firstNeighbor) && tabuList.tabuList[i][j] == 0) { //if better move found, store it
-                    firstNeighbor = false;
+                if (newBestCost < bestCost  && !tabuList.isTabuMove(i, j)) { 
                     city1 = i;
                     city2 = j;
                     bestSolution = newBestSol;
@@ -49,37 +52,35 @@ public class TabuSearch {
             }
         }
 
-        if (city1 != 0) {
+        if (city1 != 0 && city2!=0) {
             tabuList.decrementTabu();
             tabuList.tabuMove(city1, city2);
         }
+        
         return bestSolution;
     }
 
     //swaps two cities
     public ArrayList<Ciudad> swapOperator(int city1, int city2, ArrayList<Ciudad> solution) {
-        Ciudad temp = solution.get(city1);
-        solution.set(city1, solution.get(city2));
-        solution.set(city2, temp);
-        return solution;
+        ArrayList<Ciudad> auxSolution = solution;
+        Ciudad temp = auxSolution.get(city1);        
+        auxSolution.set(city1, auxSolution.get(city2));
+        auxSolution.set(city2, temp);
+        return auxSolution;
     }
 
-    public ArrayList<Ciudad> search() {
-        
-        TSPEnvironment tspEnvironment = new TSPEnvironment();        
-        
+    public ArrayList<Ciudad> search() {       
         ArrayList<Ciudad> currSolution = getListaCiudades();
         Collections.shuffle(currSolution);
+        tabuList = new TabuList();
+        tabuList.setPenalidad(penalidad);
         
-        TabuList tabuList = new TabuList(getPenalidad());
-
         ArrayList<Ciudad> bestSolution = currSolution;
-        Double bestCost = tspEnvironment.getObjectiveFunctionValue(envio, bestSolution);
+        Double bestCost = getObjectiveFunctionValue(envio, bestSolution);
 
         for (int i = 0; i < getNroIteraciones(); i++) { 
-
-            currSolution = getBestNeighbour(tabuList, tspEnvironment, currSolution, envio);         
-            Double currCost = tspEnvironment.getObjectiveFunctionValue(envio, currSolution);
+            currSolution = getBestNeighbour(currSolution, envio);         
+            Double currCost = getObjectiveFunctionValue(envio, currSolution);
             if (currCost < bestCost) {
                 bestSolution = currSolution;                
             }
@@ -163,12 +164,7 @@ public class TabuSearch {
 
         @Override
         public int compare(Ciudad c1, Ciudad c2) {
-            if (c1.getCodigo() > c2.getCodigo()) {
-                return c1.getCodigo();
-            } else {
-                return c2.getCodigo();
-            }
-
+            return c1.getCodigo() > c2.getCodigo()?c1.getCodigo():c2.getCodigo();            
         }
     }
 }
