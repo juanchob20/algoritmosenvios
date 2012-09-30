@@ -1,0 +1,838 @@
+<list>
+  <grasp.Vuelo>
+    <codVuelo>VUE00001</codVuelo>
+    <codigoCiudadOrigen>23</codigoCiudadOrigen>
+    <codigoCiudadDestino>32</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 08:52:58.331 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.331 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00002</codVuelo>
+    <codigoCiudadOrigen>32</codigoCiudadOrigen>
+    <codigoCiudadDestino>39</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.332 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 13:52:58.332 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00003</codVuelo>
+    <codigoCiudadOrigen>39</codigoCiudadOrigen>
+    <codigoCiudadDestino>28</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.332 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 17:52:58.332 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00004</codVuelo>
+    <codigoCiudadOrigen>28</codigoCiudadOrigen>
+    <codigoCiudadDestino>27</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.333 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00005</codVuelo>
+    <codigoCiudadOrigen>27</codigoCiudadOrigen>
+    <codigoCiudadDestino>26</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 17:52:58.333 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00006</codVuelo>
+    <codigoCiudadOrigen>26</codigoCiudadOrigen>
+    <codigoCiudadDestino>36</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 11:52:58.333 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00007</codVuelo>
+    <codigoCiudadOrigen>36</codigoCiudadOrigen>
+    <codigoCiudadDestino>33</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 07:52:58.333 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00008</codVuelo>
+    <codigoCiudadOrigen>33</codigoCiudadOrigen>
+    <codigoCiudadDestino>25</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.333 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00009</codVuelo>
+    <codigoCiudadOrigen>25</codigoCiudadOrigen>
+    <codigoCiudadDestino>29</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.333 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00010</codVuelo>
+    <codigoCiudadOrigen>29</codigoCiudadOrigen>
+    <codigoCiudadDestino>21</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.333 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 07:52:58.333 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00011</codVuelo>
+    <codigoCiudadOrigen>21</codigoCiudadOrigen>
+    <codigoCiudadDestino>22</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.334 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00012</codVuelo>
+    <codigoCiudadOrigen>22</codigoCiudadOrigen>
+    <codigoCiudadDestino>34</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.334 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00013</codVuelo>
+    <codigoCiudadOrigen>34</codigoCiudadOrigen>
+    <codigoCiudadDestino>24</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 11:52:58.334 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00014</codVuelo>
+    <codigoCiudadOrigen>24</codigoCiudadOrigen>
+    <codigoCiudadDestino>31</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 06:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 08:52:58.334 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00015</codVuelo>
+    <codigoCiudadOrigen>31</codigoCiudadOrigen>
+    <codigoCiudadDestino>35</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.334 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00016</codVuelo>
+    <codigoCiudadOrigen>35</codigoCiudadOrigen>
+    <codigoCiudadDestino>30</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.334 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.334 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00017</codVuelo>
+    <codigoCiudadOrigen>30</codigoCiudadOrigen>
+    <codigoCiudadDestino>38</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 11:52:58.335 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00018</codVuelo>
+    <codigoCiudadOrigen>38</codigoCiudadOrigen>
+    <codigoCiudadDestino>37</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.335 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00019</codVuelo>
+    <codigoCiudadOrigen>37</codigoCiudadOrigen>
+    <codigoCiudadDestino>40</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 13:52:58.335 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00020</codVuelo>
+    <codigoCiudadOrigen>23</codigoCiudadOrigen>
+    <codigoCiudadDestino>32</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.335 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00021</codVuelo>
+    <codigoCiudadOrigen>32</codigoCiudadOrigen>
+    <codigoCiudadDestino>39</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 13:52:58.335 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00022</codVuelo>
+    <codigoCiudadOrigen>39</codigoCiudadOrigen>
+    <codigoCiudadDestino>28</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.335 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00023</codVuelo>
+    <codigoCiudadOrigen>28</codigoCiudadOrigen>
+    <codigoCiudadDestino>27</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.335 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.335 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00024</codVuelo>
+    <codigoCiudadOrigen>27</codigoCiudadOrigen>
+    <codigoCiudadDestino>26</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00025</codVuelo>
+    <codigoCiudadOrigen>26</codigoCiudadOrigen>
+    <codigoCiudadDestino>36</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00026</codVuelo>
+    <codigoCiudadOrigen>36</codigoCiudadOrigen>
+    <codigoCiudadDestino>33</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 08:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00027</codVuelo>
+    <codigoCiudadOrigen>33</codigoCiudadOrigen>
+    <codigoCiudadDestino>25</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00028</codVuelo>
+    <codigoCiudadOrigen>25</codigoCiudadOrigen>
+    <codigoCiudadDestino>29</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00029</codVuelo>
+    <codigoCiudadOrigen>29</codigoCiudadOrigen>
+    <codigoCiudadDestino>21</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.336 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00030</codVuelo>
+    <codigoCiudadOrigen>21</codigoCiudadOrigen>
+    <codigoCiudadDestino>22</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.336 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 17:52:58.336 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00031</codVuelo>
+    <codigoCiudadOrigen>22</codigoCiudadOrigen>
+    <codigoCiudadDestino>34</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.337 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00032</codVuelo>
+    <codigoCiudadOrigen>34</codigoCiudadOrigen>
+    <codigoCiudadDestino>24</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.337 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00033</codVuelo>
+    <codigoCiudadOrigen>24</codigoCiudadOrigen>
+    <codigoCiudadDestino>31</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.337 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00034</codVuelo>
+    <codigoCiudadOrigen>31</codigoCiudadOrigen>
+    <codigoCiudadDestino>35</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 06:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 11:52:58.337 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00035</codVuelo>
+    <codigoCiudadOrigen>35</codigoCiudadOrigen>
+    <codigoCiudadDestino>30</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 13:52:58.337 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00036</codVuelo>
+    <codigoCiudadOrigen>30</codigoCiudadOrigen>
+    <codigoCiudadDestino>38</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.337 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00037</codVuelo>
+    <codigoCiudadOrigen>38</codigoCiudadOrigen>
+    <codigoCiudadDestino>37</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.337 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.337 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00038</codVuelo>
+    <codigoCiudadOrigen>37</codigoCiudadOrigen>
+    <codigoCiudadDestino>40</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.338 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.338 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00039</codVuelo>
+    <codigoCiudadOrigen>23</codigoCiudadOrigen>
+    <codigoCiudadDestino>32</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.338 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.338 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00040</codVuelo>
+    <codigoCiudadOrigen>32</codigoCiudadOrigen>
+    <codigoCiudadDestino>39</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 08:52:58.338 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.338 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00041</codVuelo>
+    <codigoCiudadOrigen>39</codigoCiudadOrigen>
+    <codigoCiudadDestino>28</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.338 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.338 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00042</codVuelo>
+    <codigoCiudadOrigen>28</codigoCiudadOrigen>
+    <codigoCiudadDestino>27</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.338 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.338 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00043</codVuelo>
+    <codigoCiudadOrigen>27</codigoCiudadOrigen>
+    <codigoCiudadDestino>26</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 06:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 08:52:58.339 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00044</codVuelo>
+    <codigoCiudadOrigen>26</codigoCiudadOrigen>
+    <codigoCiudadDestino>36</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.339 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00045</codVuelo>
+    <codigoCiudadOrigen>36</codigoCiudadOrigen>
+    <codigoCiudadDestino>33</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.339 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00046</codVuelo>
+    <codigoCiudadOrigen>33</codigoCiudadOrigen>
+    <codigoCiudadDestino>25</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.339 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00047</codVuelo>
+    <codigoCiudadOrigen>25</codigoCiudadOrigen>
+    <codigoCiudadDestino>29</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.339 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00048</codVuelo>
+    <codigoCiudadOrigen>29</codigoCiudadOrigen>
+    <codigoCiudadDestino>21</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 07:52:58.339 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00049</codVuelo>
+    <codigoCiudadOrigen>21</codigoCiudadOrigen>
+    <codigoCiudadDestino>22</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.339 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.339 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00050</codVuelo>
+    <codigoCiudadOrigen>22</codigoCiudadOrigen>
+    <codigoCiudadDestino>34</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.340 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00051</codVuelo>
+    <codigoCiudadOrigen>34</codigoCiudadOrigen>
+    <codigoCiudadDestino>24</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.340 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00052</codVuelo>
+    <codigoCiudadOrigen>24</codigoCiudadOrigen>
+    <codigoCiudadDestino>31</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 10:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.340 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00053</codVuelo>
+    <codigoCiudadOrigen>31</codigoCiudadOrigen>
+    <codigoCiudadDestino>35</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 10:52:58.340 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00054</codVuelo>
+    <codigoCiudadOrigen>35</codigoCiudadOrigen>
+    <codigoCiudadDestino>30</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.340 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00055</codVuelo>
+    <codigoCiudadOrigen>30</codigoCiudadOrigen>
+    <codigoCiudadDestino>38</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.340 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00056</codVuelo>
+    <codigoCiudadOrigen>38</codigoCiudadOrigen>
+    <codigoCiudadDestino>37</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 07:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.340 UTC</fechaLlegada>
+    <duracion>5.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00057</codVuelo>
+    <codigoCiudadOrigen>37</codigoCiudadOrigen>
+    <codigoCiudadDestino>40</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.340 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.340 UTC</fechaLlegada>
+    <duracion>2.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00058</codVuelo>
+    <codigoCiudadOrigen>23</codigoCiudadOrigen>
+    <codigoCiudadDestino>32</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.341 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00059</codVuelo>
+    <codigoCiudadOrigen>32</codigoCiudadOrigen>
+    <codigoCiudadDestino>39</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.341 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00060</codVuelo>
+    <codigoCiudadOrigen>39</codigoCiudadOrigen>
+    <codigoCiudadDestino>28</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 08:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.341 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00061</codVuelo>
+    <codigoCiudadOrigen>28</codigoCiudadOrigen>
+    <codigoCiudadDestino>27</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 16:52:58.341 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00062</codVuelo>
+    <codigoCiudadOrigen>27</codigoCiudadOrigen>
+    <codigoCiudadDestino>26</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 12:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.341 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00063</codVuelo>
+    <codigoCiudadOrigen>26</codigoCiudadOrigen>
+    <codigoCiudadDestino>36</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.341 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00064</codVuelo>
+    <codigoCiudadOrigen>36</codigoCiudadOrigen>
+    <codigoCiudadDestino>33</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.341 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 08:52:58.341 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00065</codVuelo>
+    <codigoCiudadOrigen>33</codigoCiudadOrigen>
+    <codigoCiudadDestino>25</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.342 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00066</codVuelo>
+    <codigoCiudadOrigen>25</codigoCiudadOrigen>
+    <codigoCiudadDestino>29</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 05:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 09:52:58.342 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00067</codVuelo>
+    <codigoCiudadOrigen>29</codigoCiudadOrigen>
+    <codigoCiudadDestino>21</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 08:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 11:52:58.342 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00068</codVuelo>
+    <codigoCiudadOrigen>21</codigoCiudadOrigen>
+    <codigoCiudadDestino>22</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.342 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00069</codVuelo>
+    <codigoCiudadOrigen>22</codigoCiudadOrigen>
+    <codigoCiudadDestino>34</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.342 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00070</codVuelo>
+    <codigoCiudadOrigen>34</codigoCiudadOrigen>
+    <codigoCiudadDestino>24</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 13:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 17:52:58.342 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00071</codVuelo>
+    <codigoCiudadOrigen>24</codigoCiudadOrigen>
+    <codigoCiudadDestino>31</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.342 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 15:52:58.342 UTC</fechaLlegada>
+    <duracion>4.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00072</codVuelo>
+    <codigoCiudadOrigen>31</codigoCiudadOrigen>
+    <codigoCiudadDestino>35</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.343 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.343 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00073</codVuelo>
+    <codigoCiudadOrigen>35</codigoCiudadOrigen>
+    <codigoCiudadDestino>30</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 15:52:58.343 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 18:52:58.343 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00074</codVuelo>
+    <codigoCiudadOrigen>30</codigoCiudadOrigen>
+    <codigoCiudadDestino>38</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 09:52:58.343 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 12:52:58.343 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00075</codVuelo>
+    <codigoCiudadOrigen>38</codigoCiudadOrigen>
+    <codigoCiudadDestino>37</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 11:52:58.343 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 14:52:58.343 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+  <grasp.Vuelo>
+    <codVuelo>VUE00076</codVuelo>
+    <codigoCiudadOrigen>37</codigoCiudadOrigen>
+    <codigoCiudadDestino>40</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-09-30 14:52:58.343 UTC</FechaPartida>
+    <fechaLlegada>2012-09-30 17:52:58.343 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>10.0</costoPorPaquete>
+  </grasp.Vuelo>
+</list>
