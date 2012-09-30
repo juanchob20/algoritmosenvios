@@ -12,6 +12,7 @@ public class Ciudad {
     private int codigo;
     private String nombre;
     private String sigla;
+    private String continente;
 
     /**
      * @return the codigo
@@ -53,5 +54,19 @@ public class Ciudad {
      */
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    /**
+     * @return the continente
+     */
+    public String getContinente() {
+        return continente;
+    }
+
+    /**
+     * @param continente the continente to set
+     */
+    public void setContinente(String continente) {
+        this.continente = continente;
     }
 }

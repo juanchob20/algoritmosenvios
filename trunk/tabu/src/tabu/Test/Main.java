@@ -47,45 +47,48 @@ public class Main {
      
     private static void armarListaCiudades() throws ParserConfigurationException, SAXException, IOException {
         listaCiudades = new ArrayList<>();
-        ArchivoXML ciudades = new ArchivoXML("C:\\XML\\ciudades.xml");
-        ciudades.setListaNodos("ciudad");
+        ArchivoXML ciudades = new ArchivoXML("..\\archivos\\ciudades.xml");
+        ciudades.setListaNodos("simulador.Ciudad");
         for (int i=0;i<ciudades.getCantidadNodos();i++){
             Ciudad ciudad = new Ciudad();
             ciudad.setCodigo(Integer.parseInt(ciudades.getElement(i,"codigo")));
             ciudad.setNombre(ciudades.getElement(i, "nombre"));
             ciudad.setSigla(ciudades.getElement(i, "sigla"));
+            ciudad.setContinente(ciudades.getElement(i, "continente"));
             listaCiudades.add(ciudad);
-        }
-        //Collections.sort(listaCiudades, CustomComparator);    
+        }        
     }
 
     private static void armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {
         matrizVuelos = new MultiKeyMap();
         ArchivoXML vuelos = new ArchivoXML("..\\archivos\\vuelos\\vuelo"+n+".xml");
-        vuelos.setListaNodos("vuelo");
+        vuelos.setListaNodos("simulador.Vuelo");
         for (int i=0;i<vuelos.getCantidadNodos();i++){
-            int ciudadOrig = Integer.parseInt(vuelos.getElement(i, "cinicio"));
-            int ciudadDest = Integer.parseInt(vuelos.getElement(i, "cdestino"));
-            Double costo = Double.parseDouble(vuelos.getElement(i, "costo"));
-            Date fechaSalida = Date.valueOf(vuelos.getElement(i, "fechapartida"));
-            Date fechaLlegada = Date.valueOf(vuelos.getElement(i, "fechallegada"));
+            String codVuelo = vuelos.getElement(i, "codVuelo");
+            int codigoCiudadOrigen = Integer.parseInt(vuelos.getElement(i, "codigoCiudadOrigen"));
+            int codigoCiudadDestino = Integer.parseInt(vuelos.getElement(i, "codigoCiudadDestino"));
+            Double costoPorPaquete = Double.parseDouble(vuelos.getElement(i, "costoPorPaquete"));
+            Date FechaPartida = Date.valueOf(vuelos.getElement(i, "FechaPartida"));
+            Date fechaLlegada = Date.valueOf(vuelos.getElement(i, "fechaLlegada"));
             
             Vuelo vuelo = new Vuelo();
-            vuelo.setCiudadOrigen(ciudadOrig);
-            vuelo.setCiudadDestino(ciudadDest);
-            vuelo.setCosto(costo);
-            vuelo.setFechaSalida(fechaSalida);
+            vuelo.setCodigoCiudadOrigen(codigoCiudadOrigen);
+            vuelo.setCodigoCiudadDestino(codigoCiudadDestino);
+            vuelo.setCostoPorPaquete(costoPorPaquete);
+            vuelo.setFechaPartida(FechaPartida);
             vuelo.setFechaLlegada(fechaLlegada);
+            vuelo.setCodVuelo(codVuelo);
             
-            ArrayList<Vuelo> aux = (ArrayList<Vuelo>) matrizVuelos.get(vuelo.getCiudadOrigen(), vuelo.getCiudadDestino());
+            ArrayList<Vuelo> aux = (ArrayList<Vuelo>) matrizVuelos.get(vuelo.getCodigoCiudadOrigen(), 
+                    vuelo.getCodigoCiudadDestino());
             
             if (aux==null) {
                 ArrayList<Vuelo> auxList = new ArrayList<>();
                 auxList.add(vuelo);
-                matrizVuelos.put(vuelo.getCiudadOrigen(), vuelo.getCiudadDestino(), auxList);
+                matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), auxList);
             } else {
                 aux.add(vuelo);
-                matrizVuelos.put(vuelo.getCiudadOrigen(), vuelo.getCiudadDestino(), aux);
+                matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), aux);
             }
         }
         
@@ -96,14 +99,15 @@ public class Main {
             cargaEnvios();
             armarListaCiudades();            
             for (int i=0; i<listaEnvios.size();i++){                
-                armarMatrizVuelos(i);
+                armarMatrizVuelos(i); //tsoto - diferentes escenarios
                 TabuSearch tabu = new TabuSearch();
                 tabu.setEnvio(listaEnvios.get(i));                
                 tabu.setListaCiudades(listaCiudades);
                 tabu.setMatrizVuelos(matrizVuelos);
                 tabu.setNroIteraciones(100);
                 tabu.setPenalidad(listaCiudades.size()/5);
-                ArrayList<Ciudad> solucion = tabu.search();
+                tabu.search();
+                //ArrayList<Ciudad> solucion = tabu.search();
             }                        
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
