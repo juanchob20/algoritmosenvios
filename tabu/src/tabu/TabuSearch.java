@@ -21,8 +21,7 @@ public class TabuSearch {
 
     public Double getObjectiveFunctionValue(Envio envio, ArrayList<Ciudad> solution){      
         Double cost = 0.0;
-        return cost;    
-        
+        return cost;            
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution, Envio envio) {
@@ -36,14 +35,10 @@ public class TabuSearch {
             for (int j = 2; j < bestSolution.size() - 1; j++) {                
                 if (i == j) {
                     continue;
-                }
-                //ArrayList<Ciudad> newBestSol = bestSolution; //this is the best Solution So Far
-
+                }               
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
-
                 double newBestCost = getObjectiveFunctionValue(envio, newBestSol);
-
-                if (newBestCost < bestCost  && !tabuList.isTabuMove(i, j)) { 
+                if (newBestCost < bestCost  && !tabuList.isTabuMove(i,j)) { 
                     city1 = i;
                     city2 = j;
                     bestSolution = newBestSol;
