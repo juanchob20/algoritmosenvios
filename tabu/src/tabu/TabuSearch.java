@@ -2,10 +2,8 @@ package tabu;
 
 import Data.Ciudad;
 import Data.Envio;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
+import Data.Vuelo;
+import java.util.*;
 import org.apache.commons.collections.map.MultiKeyMap;
 
 /**
@@ -15,32 +13,49 @@ import org.apache.commons.collections.map.MultiKeyMap;
 public class TabuSearch {
 
     private ArrayList<Ciudad> listaCiudades;
+    private HashMap ciudades;
     private MultiKeyMap matrizVuelos;
     private int nroIteraciones;
     private int penalidad;
     private Envio envio;
     private TabuList tabuList;
 
-    public Double getObjectiveFunctionValue(Envio envio, ArrayList<Ciudad> solution){      
-        Double cost = 0.0;
-        int canPaquetes = envio.getCantPaquetes();
-        int ciudadOrigen = envio.getCiudadOrigen();
-        int ciudadDestino = envio.getCiudadDestino();
+    public Double getObjectiveFunctionValue(ArrayList<Ciudad> solution){              
+        Ciudad ciudadOrigen = (Ciudad) ciudades.get(envio.getCiudadOrigen());
+        Ciudad ciudadDestino = (Ciudad) ciudades.get(envio.getCiudadDestino());                        
+        int cantPaquetes = envio.getCantPaquetes();
+        int indexOrigen = solution.indexOf(ciudadOrigen);
+        int indexDestino = solution.indexOf(ciudadDestino);        
+        if (indexOrigen > indexDestino) return -1.0;
+        List<Ciudad> listaAux =  solution.subList(indexOrigen, indexDestino+1);
         
-        ArrayList<Ciudad> listaFinal = validarSolucion(solution);
+        Ciudad c1 = listaAux.get(0);   
+        Ciudad c2 = listaAux.get(1);
+        Vuelo v1 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
+        if (v1==null) return -1.0;
+        c1 = c2;
+        Double costo = v1.getCostoPorPaquete()*cantPaquetes;
         
-        Iterator it = listaFinal.listIterator();
-        while (it.hasNext()){
-            Ciudad c = (Ciudad) it.next();
-        }
+        for (int i=2; i<listaAux.size(); i++){
+            c2 = listaAux.get(i);
+            Vuelo v2 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
+            if (v2==null) return -1.0;
+            if (v1.getFechaLlegada().after(v2.getFechaPartida())){
+                return -1.0;
+            }
+            costo += v2.getCostoPorPaquete()*cantPaquetes;
+            c1 = c2;
+            v1 = v2;
+        }   
         
-        return cost;            
+        return costo;
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution, Envio envio) {
 
         ArrayList<Ciudad> bestSolution = initSolution;
-        Double bestCost = getObjectiveFunctionValue(envio, initSolution);
+        Double bestCost = getObjectiveFunctionValue(initSolution);
+        
         int city1 = 0;
         int city2 = 0;
 
@@ -50,7 +65,8 @@ public class TabuSearch {
                     continue;
                 }               
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
-                double newBestCost = getObjectiveFunctionValue(envio, newBestSol);
+                double newBestCost = getObjectiveFunctionValue(newBestSol);
+                if (newBestCost == -1.0) continue;
                 if (newBestCost < bestCost  && !tabuList.isTabuMove(i,j)) { 
                     city1 = i;
                     city2 = j;
@@ -65,6 +81,7 @@ public class TabuSearch {
             tabuList.tabuMove(city1, city2);
         }
         
+        System.out.println("El mejor costo es" +bestCost);
         return bestSolution;
     }
 
@@ -84,13 +101,14 @@ public class TabuSearch {
         tabuList.setPenalidad(penalidad);
         
         ArrayList<Ciudad> bestSolution = currSolution;
-        Double bestCost = getObjectiveFunctionValue(envio, bestSolution);
+        Double bestCost = getObjectiveFunctionValue(bestSolution);
 
         for (int i = 0; i < getNroIteraciones(); i++) { 
             currSolution = getBestNeighbour(currSolution, envio);         
-            Double currCost = getObjectiveFunctionValue(envio, currSolution);
-            if (currCost < bestCost) {
-                bestSolution = currSolution;                
+            Double currCost = getObjectiveFunctionValue(currSolution);
+            if (currCost < bestCost || currCost > -1.0) {
+                bestSolution = currSolution;      
+                bestCost = currCost;
             }
         }
         
@@ -108,8 +126,14 @@ public class TabuSearch {
      * @param listaCiudades the listaCiudades to set
      */
     public void setListaCiudades(ArrayList<Ciudad> listaCiudades) {
-        this.listaCiudades = listaCiudades;
-        Collections.sort(listaCiudades, new CustomComparator());
+        this.listaCiudades = listaCiudades;        
+        Collections.sort(this.listaCiudades, new CustomComparator());
+        ciudades = new HashMap();
+        Iterator it = this.listaCiudades.listIterator();
+        while (it.hasNext()){
+            Ciudad c = (Ciudad) it.next();
+            ciudades.put(c.getCodigo(), c);
+        }
     }
 
     /**
@@ -166,11 +190,7 @@ public class TabuSearch {
      */
     public void setEnvio(Envio envio) {
         this.envio = envio;
-    }
-
-    private ArrayList<Ciudad> validarSolucion(ArrayList<Ciudad> solution) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+    }   
 
     public static class CustomComparator implements Comparator<Ciudad> {
 
