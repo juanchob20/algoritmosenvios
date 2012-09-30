@@ -95,17 +95,7 @@ public class Main {
             vuelo.setFechaLlegada(FechaLlegada);
             vuelo.setCodVuelo(codVuelo);
             
-            ArrayList<Vuelo> aux = (ArrayList<Vuelo>) matrizVuelos.get(vuelo.getCodigoCiudadOrigen(), 
-                    vuelo.getCodigoCiudadDestino());
-            
-            if (aux==null) {
-                ArrayList<Vuelo> auxList = new ArrayList<>();
-                auxList.add(vuelo);
-                matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), auxList);
-            } else {
-                aux.add(vuelo);
-                matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), aux);
-            }
+            matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), vuelo);            
         }
         
     }   
@@ -123,7 +113,6 @@ public class Main {
                 tabu.setNroIteraciones(100);
                 tabu.setPenalidad(listaCiudades.size()/5);
                 tabu.search();
-                //ArrayList<Ciudad> solucion = tabu.search();
             }                        
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
