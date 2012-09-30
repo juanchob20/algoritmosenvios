@@ -11,8 +11,6 @@ import Utils.ArchivoXML;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -34,7 +32,7 @@ public class Main {
     
     private static void cargaEnvios() throws ParserConfigurationException, SAXException, IOException {
         listaEnvios = new ArrayList<>();
-        ArchivoXML envios = new ArchivoXML("../archivos/envio.xml");
+        ArchivoXML envios = new ArchivoXML("files/envios.xml");
         envios.setListaNodos("envios");        
         for (int i=0;i<envios.getCantidadNodos();i++){
             Envio envio = new Envio();
@@ -47,7 +45,7 @@ public class Main {
      
     private static void armarListaCiudades() throws ParserConfigurationException, SAXException, IOException {
         listaCiudades = new ArrayList<>();
-        ArchivoXML ciudades = new ArchivoXML("..\\archivos\\ciudades.xml");
+        ArchivoXML ciudades = new ArchivoXML("files/ciudades.xml");
         ciudades.setListaNodos("simulador.Ciudad");
         for (int i=0;i<ciudades.getCantidadNodos();i++){
             Ciudad ciudad = new Ciudad();
@@ -61,7 +59,7 @@ public class Main {
 
     private static void armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {
         matrizVuelos = new MultiKeyMap();
-        ArchivoXML vuelos = new ArchivoXML("..\\archivos\\vuelos\\vuelo"+n+".xml");
+        ArchivoXML vuelos = new ArchivoXML("files/vuelos/vuelo"+n+".xml");
         vuelos.setListaNodos("simulador.Vuelo");
         for (int i=0;i<vuelos.getCantidadNodos();i++){
             String codVuelo = vuelos.getElement(i, "codVuelo");

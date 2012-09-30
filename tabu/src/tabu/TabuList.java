@@ -7,7 +7,6 @@ import org.apache.commons.collections.map.MultiKeyMap;
 /**
  *
  * @author kat
- * Use this code at your own risk ;)
  */
 public class TabuList {
     
