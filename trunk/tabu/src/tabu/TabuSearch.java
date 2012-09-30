@@ -5,6 +5,7 @@ import Data.Envio;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import org.apache.commons.collections.map.MultiKeyMap;
 
 /**
@@ -22,6 +23,17 @@ public class TabuSearch {
 
     public Double getObjectiveFunctionValue(Envio envio, ArrayList<Ciudad> solution){      
         Double cost = 0.0;
+        int canPaquetes = envio.getCantPaquetes();
+        int ciudadOrigen = envio.getCiudadOrigen();
+        int ciudadDestino = envio.getCiudadDestino();
+        
+        ArrayList<Ciudad> listaFinal = validarSolucion(solution);
+        
+        Iterator it = listaFinal.listIterator();
+        while (it.hasNext()){
+            Ciudad c = (Ciudad) it.next();
+        }
+        
         return cost;            
     }
      
@@ -56,6 +68,7 @@ public class TabuSearch {
         return bestSolution;
     }
 
+ 
     public ArrayList<Ciudad> swapOperator(int city1, int city2, ArrayList<Ciudad> solution) {
         ArrayList<Ciudad> auxSolution = solution;
         Ciudad temp = auxSolution.get(city1);        
@@ -95,7 +108,7 @@ public class TabuSearch {
      * @param listaCiudades the listaCiudades to set
      */
     public void setListaCiudades(ArrayList<Ciudad> listaCiudades) {
-        this.setListaCiudades(listaCiudades);
+        this.listaCiudades = listaCiudades;
         Collections.sort(listaCiudades, new CustomComparator());
     }
 
@@ -153,6 +166,10 @@ public class TabuSearch {
      */
     public void setEnvio(Envio envio) {
         this.envio = envio;
+    }
+
+    private ArrayList<Ciudad> validarSolucion(ArrayList<Ciudad> solution) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public static class CustomComparator implements Comparator<Ciudad> {
