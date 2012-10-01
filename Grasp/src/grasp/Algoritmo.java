@@ -29,8 +29,8 @@ public class Algoritmo {
     private RutaSolucion solucionFinal;
     //PARAMETROS:
     //CON ESTO PRUEBAS EL ALGORITMO
-    private Ciudad ciudadInicio = new Ciudad(1, "C203", "C203", "CON2");
-    private Ciudad ciudadDestino = new Ciudad(20, "C219", "C219", "CON2");
+    private Ciudad ciudadInicio = new Ciudad(3, "C203", "C203", "CON2");
+    private Ciudad ciudadDestino = new Ciudad(15, "C219", "C219", "CON2");
     private int cantidadPaquetes;
     private int tipoDestino;
     //CONSTANTES(PARTE DE LA CONFIGURACION):
@@ -51,34 +51,64 @@ public class Algoritmo {
         //INICIALIZAR VARIABLES 
 
         //CARGO LA INFORMACION A VUELOS
+        
         listaVuelos = leerVuelos();
         listaCiudades = leerCiudades();
         estructuraVuelos = new ArrayList<>();
+        rcl = new ArrayList<>();
         rellenarVuelos(estructuraVuelos, listaVuelos);
         //DE LA LISTA DE VUELOS SE CREA EL ARREGLO 3D QUE FACILITA EL MANEJO
         int i = 0;
-        while (i < 10) { /*Condicion de Parada, iteraciones del grasp*/
+        while (i < 1000) { /*Condicion de Parada, iteraciones del grasp*/
+            boolean hayRcl =false ;
             //SE INICIALIZA LA RUTA SOLUCION SIN VUELOS PERO CON CIUDAD ORIGEN
             rutaSolucion = new RutaSolucion(ciudadInicio);
             listaVecinos = new ArrayList<>();
-
+            
             do { //ACA SE BUSCA ITERAR HASTA FORMAR  UNA SOLUCION
                 //
-
+                hayRcl =false ;
                 //SE ESCOGE UNA LISTA DE VECINOS Y EN BASE A ELLOS SE FORMA UNA RCL
                 listaVecinos = buscarVecinos(getEstructuraVuelos(), rutaSolucion);
                 rcl = generarRCL(listaVecinos, rutaSolucion);
-                if (rcl == null) {
-                } else {
+                if (rcl==null || rcl.isEmpty()) hayRcl=false;
+                else{
+                    hayRcl=true;
+                }
+                    
+                if (hayRcl) {
+                    
                     //SE AGREGA UN NODO A LA SOLUCION DE FORMA ALEATORIA
                     rutaSolucion = escogerVecino(rutaSolucion, rcl);
+                    if (rutaSolucion.getCiudadActual().getCodigo()==ciudadDestino.getCodigo()) {
+                        break;
+                    }
                     //System.out.println("Llega a los nodos");
                 }
-            } while (rutaSolucion.getCiudadActual().getCodigo() != ciudadDestino.getCodigo());
-
-            if (solucionFinal == null || (solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal())) {
+                
+                else {
+                    hayRcl=false;
+                    break;
+                }
+            } while (true);
+            
+//            for (int a=0;a<rutaSolucion.getListaVuelos().size();a++){
+//            System.out.println("Vuelo" + i);     
+//            System.out.println("Origen" + rutaSolucion.getListaVuelos().get(a).getCodigoCiudadOrigen());    
+//            System.out.println("Destino" + rutaSolucion.getListaVuelos().get(a).getCodigoCiudadDestino()); 
+//            }
+            
+            
+            if (solucionFinal == null ){
                 solucionFinal = rutaSolucion;
             }
+            if (hayRcl==false){
+                solucionFinal =null;
+            }
+            if ((hayRcl) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
+                solucionFinal = rutaSolucion;
+            }
+            
             i++;
             System.out.println(i);
         }
@@ -242,7 +272,7 @@ public class Algoritmo {
         ArrayList<Vuelo> vuelos = null;
         try {
             XStream xs = new XStream();
-            FileReader fr = new FileReader("C:\\Users\\Cesar\\Documents\\NetBeansProjects\\Grasp\\vuelos.xml");
+            FileReader fr = new FileReader("vuelos.xml");
             vuelos = (ArrayList<Vuelo>) xs.fromXML(fr);
             fr.close();
         } catch (IOException e) {
@@ -258,7 +288,7 @@ public class Algoritmo {
         ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
         try {
             XStream xs = new XStream();
-            FileReader fr = new FileReader("C:\\Users\\Cesar\\Documents\\NetBeansProjects\\Grasp\\ciudades.xml");
+            FileReader fr = new FileReader("ciudades.xml");
             ciudades = (ArrayList<Ciudad>) xs.fromXML(fr);
             fr.close();
         } catch (IOException e) {
