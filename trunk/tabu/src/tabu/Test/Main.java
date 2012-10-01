@@ -110,7 +110,7 @@ public class Main {
                 tabu.setEnvio(listaEnvios.get(i));                
                 tabu.setListaCiudades(listaCiudades);
                 tabu.setMatrizVuelos(matrizVuelos);
-                tabu.setNroIteraciones(1000);
+                tabu.setNroIteraciones(100);
                 tabu.setPenalidad(listaCiudades.size()/5);
                 tabu.search();
             }                        

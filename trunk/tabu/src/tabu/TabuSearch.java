@@ -15,6 +15,8 @@ public class TabuSearch {
     private ArrayList<Ciudad> listaCiudades;
     private HashMap ciudades;
     private MultiKeyMap matrizVuelos;
+    private HashMap indicesFor;
+    private int contFor;
     private int nroIteraciones;
     private int penalidad;
     private Envio envio;
@@ -26,67 +28,62 @@ public class TabuSearch {
         int cantPaquetes = envio.getCantPaquetes();
         int indexOrigen = solution.indexOf(ciudadOrigen);
         int indexDestino = solution.indexOf(ciudadDestino);        
-        if (indexOrigen > indexDestino) return 10000.0;
+        if (indexOrigen > indexDestino) return Math.random()*100.0+1000.0;
         List<Ciudad> listaAux =  solution.subList(indexOrigen, indexDestino+1);
         
         Ciudad c1 = listaAux.get(0);   
         Ciudad c2 = listaAux.get(1);
         
         Vuelo v1 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-        if (v1 == null) return 10000.0;
+        if (v1 == null) return Math.random()*100.0+1000.0;
         c1 = listaAux.get(1);
         Double costo = v1.getCostoPorPaquete()*cantPaquetes;
         
         for (int i=2; i<listaAux.size(); i++){
             c2 = listaAux.get(i);
-            /*System.out.println("Antes de v2");
-            System.out.println("c1 = "+c1.getCodigo());
-            System.out.println("c2 = "+c2.getCodigo());*/
             Vuelo v2 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-            if (v2 == null) return 10000.0;
-            //System.out.println("Despues de v2");
+            if (v2 == null) return Math.random()*100.0+1000.0;
             if (v1.getFechaLlegada().after(v2.getFechaPartida())){
-                return 10000.0;
+                return Math.random()*100.0+1000.0;
             }
             costo += v2.getCostoPorPaquete()*cantPaquetes;
             v1 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
             c1 = listaAux.get(i);            
-        }   
-        System.out.println("El mejor costo es " +costo);
+        }
         return costo;
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution) {
 
-        ArrayList<Ciudad> bestSolution = initSolution;
-        Double bestCost = getObjectiveFunctionValue(initSolution);
-        System.out.println("El bestcost es "+bestCost);
+        ArrayList<Ciudad> bestSolution = (ArrayList<Ciudad>) initSolution.clone();
+        Double bestCost = getObjectiveFunctionValue(bestSolution);
+        //System.out.println("---- El costo inicial del vecindario es "+bestCost);
         
         int city1 = 0;
         int city2 = 0;
-
+        
+        int cont = 0;
         for (int i = 0; i < bestSolution.size(); i++) {
             for (int j = i+1; j < bestSolution.size(); j++) {                                              
+                cont++;
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
                 double newBestCost = getObjectiveFunctionValue(newBestSol);
-                System.out.println("El newBestCost es "+newBestCost);
-                if (newBestCost == 10000.0) continue;
+                //System.out.println("------ El costo de la solucion "+cont+" del vecindario es "+newBestCost);                
                 if ((newBestCost < bestCost) && !tabuList.isTabuMove(i,j)) { 
                     city1 = i;
                     city2 = j;
-                    bestSolution = newBestSol;
+                    bestSolution = (ArrayList<Ciudad>) newBestSol.clone();
                     bestCost = newBestCost;
+                    //System.out.println("-------- No es tabu move, solucion "+cont+":"+ bestCost);
                 }
             }
         }
 
-        if (city1 != 0 && city2!=0) {
-            tabuList.decrementTabu();
-            tabuList.tabuMove(city1, city2);
-        }
-        
-        if (bestSolution.equals(initSolution)){
+        if (city1 == 0 && city2 == 0) {
             Collections.shuffle(bestSolution);
+        } else {           
+            tabuList.decrementTabu();         
+            tabuList.tabuMove(city1, city2);
         }
         
         return bestSolution;
@@ -94,7 +91,7 @@ public class TabuSearch {
 
  
     public ArrayList<Ciudad> swapOperator(int city1, int city2, ArrayList<Ciudad> solution) {
-        ArrayList<Ciudad> auxSolution = solution;
+        ArrayList<Ciudad> auxSolution = (ArrayList<Ciudad>) solution.clone();
         Ciudad temp = auxSolution.get(city1);        
         auxSolution.set(city1, auxSolution.get(city2));
         auxSolution.set(city2, temp);
@@ -106,20 +103,24 @@ public class TabuSearch {
         Collections.shuffle(currSolution);
         tabuList = new TabuList();
         tabuList.setPenalidad(penalidad);
+        tabuList.setSize(listaCiudades.size());
         
-        ArrayList<Ciudad> bestSolution = currSolution;
+        ArrayList<Ciudad> bestSolution = (ArrayList<Ciudad>) currSolution.clone();
         Double bestCost = getObjectiveFunctionValue(bestSolution);
-        System.out.println("El currcost es "+ bestCost);
-
-        for (int i = 0; i < getNroIteraciones(); i++) { 
-            System.out.println("iteracion "+i);
-            currSolution = getBestNeighbour(currSolution);         
-            Double currCost = getObjectiveFunctionValue(currSolution);
-            System.out.println("El currcost es "+ currCost);
-            if (currCost < bestCost) {
-                bestSolution = currSolution;      
-                bestCost = currCost;
+        //System.out.println("El costo de la solucion inicial es "+ bestCost);
+        boolean halloSolValida = false;
+        while(!halloSolValida){
+            for (int i = 0; i < getNroIteraciones(); i++) { 
+                //System.out.println("-- Iteracion "+i);
+                currSolution = getBestNeighbour(currSolution);         
+                Double currCost = getObjectiveFunctionValue(currSolution);
+                //System.out.println("-- El costo del vecindario "+i+" es "+ currCost);
+                if (currCost < bestCost) {
+                    bestSolution = (ArrayList<Ciudad>) currSolution.clone();      
+                    bestCost = getObjectiveFunctionValue(bestSolution);
+                }
             }
+            if (bestCost < 1000.0) halloSolValida = true;
         }
         System.out.println("El mejor costo es "+bestCost);
         return bestSolution;
@@ -200,7 +201,35 @@ public class TabuSearch {
      */
     public void setEnvio(Envio envio) {
         this.envio = envio;
-    }   
+    }
+
+    /**
+     * @return the indicesFor
+     */
+    public HashMap getIndicesFor() {
+        return indicesFor;
+    }
+
+    /**
+     * @param indicesFor the indicesFor to set
+     */
+    public void setIndicesFor(HashMap indicesFor) {
+        this.indicesFor = indicesFor;
+    }
+
+    /**
+     * @return the contFor
+     */
+    public int getContFor() {
+        return contFor;
+    }
+
+    /**
+     * @param contFor the contFor to set
+     */
+    public void setContFor(int contFor) {
+        this.contFor = contFor;
+    }
 
     public static class CustomComparator implements Comparator<Ciudad> {
 

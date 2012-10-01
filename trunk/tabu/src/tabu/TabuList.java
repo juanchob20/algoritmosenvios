@@ -1,52 +1,31 @@
 package tabu;
 
-import org.apache.commons.collections.MapIterator;
-import org.apache.commons.collections.keyvalue.MultiKey;
-import org.apache.commons.collections.map.MultiKeyMap;
-
 /**
  *
  * @author kat
  */
 public class TabuList {
     
-    private MultiKeyMap matrizMovimientos;
+    //private MultiKeyMap matrizMovimientos;
     private int penalidad; 
+    private int size;
+    private int matrizTabu[][];
    
     public TabuList(){
-        matrizMovimientos = new MultiKeyMap();
+        //matrizMovimientos = new MultiKeyMap();
     }
     
     public void tabuMove(int city1, int city2){
-        matrizMovimientos.put(city1, city2, penalidad);        
+        matrizTabu[city1][city2] = penalidad;        
     }
     
     public void decrementTabu(){
-        for (MapIterator  it = matrizMovimientos.mapIterator(); it.hasNext();) {  
-            MultiKey mk = (MultiKey) it.getKey();
-            int k1 = (int) mk.getKey(0);
-            int k2 = (int) mk.getKey(1);
-            int value = (int) matrizMovimientos.get(k1, k2);
-            if(value == 0){
-                matrizMovimientos.remove(k1,k2);
-            } else {
-                matrizMovimientos.put(k1, k2,value-1);
+        for (int i=0;i<size;i++){
+            for(int j=i+1;j<size;j++){
+                if (matrizTabu[i][j] == 0) continue;
+                matrizTabu[i][j] -= 1;
             }
         }
-    }
-
-    /**
-     * @return the matrizMovimientos
-     */
-    public MultiKeyMap getMatrizMovimientos() {
-        return matrizMovimientos;
-    }
-
-    /**
-     * @param matrizMovimientos the matrizMovimientos to set
-     */
-    public void setMatrizMovimientos(MultiKeyMap matrizMovimientos) {
-        this.matrizMovimientos = matrizMovimientos;
     }
 
     /**
@@ -64,7 +43,45 @@ public class TabuList {
     }
 
     boolean isTabuMove(int i, int j) {
-        return matrizMovimientos.get(i, j)!=null && matrizMovimientos.get(i, j) != 0;
+        return matrizTabu[i][j] > 0;
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(int size) {
+        this.size = size;
+        inicializarMatrizTabu();        
+    }
+
+    /**
+     * @return the matrizTabu
+     */
+    public int[][] getMatrizTabu() {
+        return matrizTabu;
+    }
+
+    /**
+     * @param matrizTabu the matrizTabu to set
+     */
+    public void setMatrizTabu(int[][] matrizTabu) {
+        this.matrizTabu = matrizTabu;
+    }
+
+    private void inicializarMatrizTabu() {
+        this.matrizTabu = new int[size][size];
+        for (int i=0;i<size;i++){
+            for(int j=i+1;j<size;j++){
+                matrizTabu[i][j] = 0;                
+            }
+        }
     }
     
 }
