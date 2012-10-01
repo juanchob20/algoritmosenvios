@@ -37,7 +37,7 @@ public class RutaSolucion {
  
  
  public void add(Vuelo vuelo, int cantidadPaquetes, ArrayList<Ciudad> listaCiudades){
-        getListaVuelos().add(vuelo);
+     getListaVuelos().add(vuelo);
      indiceActual++;
      costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
      this.cantHorasActual+=vuelo.getDuracion();
