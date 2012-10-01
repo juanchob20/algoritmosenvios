@@ -29,7 +29,7 @@ public class Main {
     
     //private static String PATH;
     private static ArrayList <Envio> listaEnvios;
-    private static MultiKeyMap matrizVuelos;
+    //private static MultiKeyMap matrizVuelos;
     private static ArrayList<Ciudad> listaCiudades;
     
     private static void cargaEnvios() throws ParserConfigurationException, SAXException, IOException {       
@@ -59,8 +59,8 @@ public class Main {
         }        
     }
 
-    private static void armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {
-        matrizVuelos = new MultiKeyMap();
+    private static MultiKeyMap armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {
+        MultiKeyMap matrizVuelos = new MultiKeyMap();
         ArchivoXML vuelos = new ArchivoXML("files\\vuelos\\vuelo"+n+".xml");
         vuelos.setListaNodos("simulador.Vuelo");
         for (int i=0;i<vuelos.getCantidadNodos();i++){
@@ -95,29 +95,36 @@ public class Main {
             vuelo.setFechaLlegada(FechaLlegada);
             vuelo.setCodVuelo(codVuelo);
             
-            matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), vuelo);            
+            matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), vuelo);                    
         }
+        return matrizVuelos;
         
     }   
+    
+    
+    
+    private static ArrayList<Ciudad> getReducedList(Envio envio ,MultiKeyMap matrizVuelos) {
+        
+        return null;
+    }
     
     public static void main(String[] args) {
         try {            
             cargaEnvios();
             armarListaCiudades();            
             for (int i=0; i<listaEnvios.size();i++){                
-                armarMatrizVuelos(i+1); //tsoto - diferentes escenarios
-                TabuSearch tabu = new TabuSearch();
+                MultiKeyMap matrizVuelos = armarMatrizVuelos(i+1); 
+                ArrayList<Ciudad> reducedList = getReducedList(listaEnvios.get(i),matrizVuelos);
+                TabuSearch tabu = new TabuSearch();                
                 tabu.setEnvio(listaEnvios.get(i));                
-                tabu.setListaCiudades(listaCiudades);
+                tabu.setListaCiudades(reducedList);
                 tabu.setMatrizVuelos(matrizVuelos);
                 tabu.setNroIteraciones(100);
-                tabu.setPenalidad(listaCiudades.size()/5);
+                tabu.setPenalidad(matrizVuelos.size()/4);
                 tabu.search();
             }                        
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    
+    }    
 }
