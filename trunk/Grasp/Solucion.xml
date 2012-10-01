@@ -1,13 +1,24 @@
 <grasp.RutaSolucion>
   <listaVuelos>
     <grasp.Vuelo>
-      <codVuelo>VUE00015</codVuelo>
+      <codVuelo>VUE00290</codVuelo>
       <codigoCiudadOrigen>20</codigoCiudadOrigen>
+      <codigoCiudadDestino>14</codigoCiudadDestino>
+      <capacidadCarga>300</capacidadCarga>
+      <capacidadDisponible>300</capacidadDisponible>
+      <FechaPartida>2012-10-01 10:55:31.188 UTC</FechaPartida>
+      <fechaLlegada>2012-10-01 12:55:31.188 UTC</fechaLlegada>
+      <duracion>2.0</duracion>
+      <costoPorPaquete>4.0</costoPorPaquete>
+    </grasp.Vuelo>
+    <grasp.Vuelo>
+      <codVuelo>VUE00014</codVuelo>
+      <codigoCiudadOrigen>14</codigoCiudadOrigen>
       <codigoCiudadDestino>11</codigoCiudadDestino>
       <capacidadCarga>300</capacidadCarga>
       <capacidadDisponible>300</capacidadDisponible>
-      <FechaPartida>2012-10-01 03:55:31.167 UTC</FechaPartida>
-      <fechaLlegada>2012-10-01 05:55:31.167 UTC</fechaLlegada>
+      <FechaPartida>2012-10-01 10:55:31.167 UTC</FechaPartida>
+      <fechaLlegada>2012-10-01 12:55:31.167 UTC</fechaLlegada>
       <duracion>2.0</duracion>
       <costoPorPaquete>4.0</costoPorPaquete>
     </grasp.Vuelo>
@@ -67,13 +78,13 @@
       <costoPorPaquete>4.0</costoPorPaquete>
     </grasp.Vuelo>
   </listaVuelos>
-  <costoTotal>25.0</costoTotal>
+  <costoTotal>29.0</costoTotal>
   <ciudadActual>
     <codigo>1</codigo>
     <siglas>C101</siglas>
     <nombre>C101</nombre>
     <continente>CON1</continente>
   </ciudadActual>
-  <indiceActual>6</indiceActual>
-  <cantHorasActual>13.0</cantHorasActual>
+  <indiceActual>7</indiceActual>
+  <cantHorasActual>15.0</cantHorasActual>
 </grasp.RutaSolucion>

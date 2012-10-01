@@ -23,6 +23,7 @@ public class Algoritmo {
     private ArrayList<ArrayList<ArrayList<Vuelo>>> estructuraVuelos;
     private ArrayList<Ciudad> listaCiudades;
     private Almacen[] listaAlmacenes;
+    //private ArrayList<RutaSolucion> listaSolucionesParaTabu;
     private ArrayList<Vuelo> rcl;
     private ArrayList<Vuelo> listaVecinos;
     private RutaSolucion rutaSolucion;
@@ -45,7 +46,7 @@ public class Algoritmo {
     /**
      * @param args the command line arguments
      */
-    public void ejecutarAlgoritmo() {
+    public void   /*ArrayList<RutaSolucion>*/ ejecutarAlgoritmo() {
         // TODO code application logic here
 
         //INICIALIZAR VARIABLES 
@@ -114,17 +115,21 @@ public class Algoritmo {
             
             
             if (solucionFinal == null && existeSolucionParcial){
+                //listaSolucionesParaTabu.add(rutaSolucion);
                 solucionFinal = rutaSolucion;
+                
             }
             
             
             if ((existeSolucionParcial) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
+                //listaSolucionesParaTabu.add(rutaSolucion); 
                 solucionFinal = rutaSolucion;
             }
             
             i++;
             System.out.println(i);
         }
+        //return listaSolucionesParaTabu;
         XStream xs = new XStream();
         Scanner in = new Scanner(System.in);
 
