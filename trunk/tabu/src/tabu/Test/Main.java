@@ -9,7 +9,7 @@ import Data.Envio;
 import Data.Vuelo;
 import Utils.ArchivoXML;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -71,7 +71,7 @@ public class Main {
             
             String fp = vuelos.getElement(i, "FechaPartida");
             Date FechaPartida;
-            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+            SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
             try {
                 FechaPartida = (Date) df.parse(fp);
             } catch (ParseException e) {
@@ -80,7 +80,7 @@ public class Main {
              
             String fll = vuelos.getElement(i, "fechaLlegada");
             Date FechaLlegada;
-            df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+            df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
             try {
                 FechaLlegada = (Date) df.parse(fll);
             } catch (ParseException e) {
@@ -110,7 +110,7 @@ public class Main {
                 tabu.setEnvio(listaEnvios.get(i));                
                 tabu.setListaCiudades(listaCiudades);
                 tabu.setMatrizVuelos(matrizVuelos);
-                tabu.setNroIteraciones(100);
+                tabu.setNroIteraciones(1000);
                 tabu.setPenalidad(listaCiudades.size()/5);
                 tabu.search();
             }                        

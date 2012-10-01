@@ -26,48 +26,52 @@ public class TabuSearch {
         int cantPaquetes = envio.getCantPaquetes();
         int indexOrigen = solution.indexOf(ciudadOrigen);
         int indexDestino = solution.indexOf(ciudadDestino);        
-        if (indexOrigen > indexDestino) return -1.0;
+        if (indexOrigen > indexDestino) return 10000.0;
         List<Ciudad> listaAux =  solution.subList(indexOrigen, indexDestino+1);
         
         Ciudad c1 = listaAux.get(0);   
         Ciudad c2 = listaAux.get(1);
+        
         Vuelo v1 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-        if (v1==null) return -1.0;
-        c1 = c2;
+        if (v1 == null) return 10000.0;
+        c1 = listaAux.get(1);
         Double costo = v1.getCostoPorPaquete()*cantPaquetes;
         
         for (int i=2; i<listaAux.size(); i++){
             c2 = listaAux.get(i);
+            /*System.out.println("Antes de v2");
+            System.out.println("c1 = "+c1.getCodigo());
+            System.out.println("c2 = "+c2.getCodigo());*/
             Vuelo v2 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-            if (v2==null) return -1.0;
+            if (v2 == null) return 10000.0;
+            //System.out.println("Despues de v2");
             if (v1.getFechaLlegada().after(v2.getFechaPartida())){
-                return -1.0;
+                return 10000.0;
             }
             costo += v2.getCostoPorPaquete()*cantPaquetes;
-            c1 = c2;
-            v1 = v2;
+            v1 = (Vuelo) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
+            c1 = listaAux.get(i);            
         }   
-        
+        System.out.println("El mejor costo es " +costo);
         return costo;
     }
      
-    public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution, Envio envio) {
+    public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution) {
 
         ArrayList<Ciudad> bestSolution = initSolution;
         Double bestCost = getObjectiveFunctionValue(initSolution);
+        System.out.println("El bestcost es "+bestCost);
         
         int city1 = 0;
         int city2 = 0;
 
-        for (int i = 1; i < bestSolution.size() - 1; i++) {
-            for (int j = 2; j < bestSolution.size() - 1; j++) {                
-                if (i == j) {
-                    continue;
-                }               
+        for (int i = 0; i < bestSolution.size(); i++) {
+            for (int j = i+1; j < bestSolution.size(); j++) {                                              
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
                 double newBestCost = getObjectiveFunctionValue(newBestSol);
-                if (newBestCost == -1.0) continue;
-                if (newBestCost < bestCost  && !tabuList.isTabuMove(i,j)) { 
+                System.out.println("El newBestCost es "+newBestCost);
+                if (newBestCost == 10000.0) continue;
+                if ((newBestCost < bestCost) && !tabuList.isTabuMove(i,j)) { 
                     city1 = i;
                     city2 = j;
                     bestSolution = newBestSol;
@@ -81,7 +85,10 @@ public class TabuSearch {
             tabuList.tabuMove(city1, city2);
         }
         
-        System.out.println("El mejor costo es" +bestCost);
+        if (bestSolution.equals(initSolution)){
+            Collections.shuffle(bestSolution);
+        }
+        
         return bestSolution;
     }
 
@@ -102,16 +109,19 @@ public class TabuSearch {
         
         ArrayList<Ciudad> bestSolution = currSolution;
         Double bestCost = getObjectiveFunctionValue(bestSolution);
+        System.out.println("El currcost es "+ bestCost);
 
         for (int i = 0; i < getNroIteraciones(); i++) { 
-            currSolution = getBestNeighbour(currSolution, envio);         
+            System.out.println("iteracion "+i);
+            currSolution = getBestNeighbour(currSolution);         
             Double currCost = getObjectiveFunctionValue(currSolution);
-            if (currCost < bestCost || currCost > -1.0) {
+            System.out.println("El currcost es "+ currCost);
+            if (currCost < bestCost) {
                 bestSolution = currSolution;      
                 bestCost = currCost;
             }
         }
-        
+        System.out.println("El mejor costo es "+bestCost);
         return bestSolution;
     }
 
