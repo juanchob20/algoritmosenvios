@@ -1,7 +1,7 @@
 <list>
   <simulador.Envio>
-    <codigoCiudadOrigen>30</codigoCiudadOrigen>
-    <codigoCiudadDestino>18</codigoCiudadDestino>
+    <codigoCiudadOrigen>6</codigoCiudadOrigen>
+    <codigoCiudadDestino>7</codigoCiudadDestino>
     <cantidadPaquetes>5</cantidadPaquetes>
   </simulador.Envio>
 </list>
