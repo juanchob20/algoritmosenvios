@@ -29,18 +29,18 @@ public class Algoritmo {
     private RutaSolucion solucionFinal;
     //PARAMETROS:
     //CON ESTO PRUEBAS EL ALGORITMO
-    private Ciudad ciudadInicio = new Ciudad(3, "C203", "C203", "CON2");
-    private Ciudad ciudadDestino = new Ciudad(15, "C219", "C219", "CON2");
+    private Ciudad ciudadInicio = new Ciudad(20, "C203", "C203", "CON2");
+    private Ciudad ciudadDestino = new Ciudad(1, "C219", "C219", "CON2");
     private int cantidadPaquetes;
     private int tipoDestino;
     //CONSTANTES(PARTE DE LA CONFIGURACION):
     public static long cantHorasMaxContinental = 24;
     public static long cantHorasMaxInter = 48;
-    public static double alfa = 0.42;
-    public static int cantMaxVecinos = 10;
+    public static double alfa = 0.5;
+    public static int cantMaxVecinos = 15;
     public static int cantMaxCiudades = 100;
-    public static int cantMaxVuelosPorArista = 3;
-    public static int cantPaquetes = 10;
+    public static int cantMaxVuelosPorArista = 20;
+    public static int cantPaquetes = 1;
 
     /**
      * @param args the command line arguments
@@ -55,13 +55,17 @@ public class Algoritmo {
         listaVuelos = leerVuelos();
         listaCiudades = leerCiudades();
         estructuraVuelos = new ArrayList<>();
-        rcl = new ArrayList<>();
+        
         rellenarVuelos(estructuraVuelos, listaVuelos);
         //DE LA LISTA DE VUELOS SE CREA EL ARREGLO 3D QUE FACILITA EL MANEJO
         int i = 0;
-        while (i < 1000) { /*Condicion de Parada, iteraciones del grasp*/
+        while (i < 2000) { /*Condicion de Parada, iteraciones del grasp*/
             boolean hayRcl =false ;
+            boolean existeSolucionParcial=false;
+            rcl = null;
+            rcl = new ArrayList<>();
             //SE INICIALIZA LA RUTA SOLUCION SIN VUELOS PERO CON CIUDAD ORIGEN
+            rutaSolucion = null;
             rutaSolucion = new RutaSolucion(ciudadInicio);
             listaVecinos = new ArrayList<>();
             
@@ -71,9 +75,12 @@ public class Algoritmo {
                 //SE ESCOGE UNA LISTA DE VECINOS Y EN BASE A ELLOS SE FORMA UNA RCL
                 listaVecinos = buscarVecinos(getEstructuraVuelos(), rutaSolucion);
                 rcl = generarRCL(listaVecinos, rutaSolucion);
-                if (rcl==null || rcl.isEmpty()) hayRcl=false;
+                if (rcl.isEmpty()) {
+                    existeSolucionParcial=false;
+                }
                 else{
                     hayRcl=true;
+                    
                 }
                     
                 if (hayRcl) {
@@ -81,31 +88,37 @@ public class Algoritmo {
                     //SE AGREGA UN NODO A LA SOLUCION DE FORMA ALEATORIA
                     rutaSolucion = escogerVecino(rutaSolucion, rcl);
                     if (rutaSolucion.getCiudadActual().getCodigo()==ciudadDestino.getCodigo()) {
+                        existeSolucionParcial=true;
                         break;
                     }
                     //System.out.println("Llega a los nodos");
                 }
                 
                 else {
-                    hayRcl=false;
+                    
                     break;
                 }
             } while (true);
             
-//            for (int a=0;a<rutaSolucion.getListaVuelos().size();a++){
-//            System.out.println("Vuelo" + i);     
-//            System.out.println("Origen" + rutaSolucion.getListaVuelos().get(a).getCodigoCiudadOrigen());    
-//            System.out.println("Destino" + rutaSolucion.getListaVuelos().get(a).getCodigoCiudadDestino()); 
-//            }
+//                    XStream xs = new XStream();
+//                    Scanner in = new Scanner(System.in);
+//
+//                    String temp = xs.toXML(rutaSolucion);
+//                    try {
+//                        FileWriter fw = new FileWriter("Solucion" +i+".xml");
+//                        fw.write(temp);
+//                        fw.close();
+//                    } catch (IOException e) {
+//                        System.out.println(e.toString());
+//                    }
             
             
-            if (solucionFinal == null ){
+            if (solucionFinal == null && existeSolucionParcial){
                 solucionFinal = rutaSolucion;
             }
-            if (hayRcl==false){
-                solucionFinal =null;
-            }
-            if ((hayRcl) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
+            
+            
+            if ((existeSolucionParcial) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
                 solucionFinal = rutaSolucion;
             }
             
@@ -126,7 +139,7 @@ public class Algoritmo {
     }
 
     public void rellenarVuelos(ArrayList<ArrayList<ArrayList<Vuelo>>> estructuraVuelos, ArrayList<Vuelo> listaVuelos) {
-        int i, j, k;
+        int i, j;
 
         for (i = 0; i < cantMaxCiudades; i++) {
             estructuraVuelos.add(new ArrayList<ArrayList<Vuelo>>());
@@ -173,7 +186,8 @@ public class Algoritmo {
         double beta;
         double tao;
         double limite;
-
+        boolean vetado;
+        vetado = false;
         ArrayList<Vuelo> listarcl = new ArrayList<>();
 
         Quicksort sorter = new Quicksort();
@@ -188,7 +202,7 @@ public class Algoritmo {
         //verificar que el quicksort está ordenando de menor a mayor
         tao = listaVecino.get(listaVecino.size() - 1).getCostoPorPaquete();
         limite = beta + alfa * (tao - beta);
-
+        
         int i = 0;
 
         //CORE DE LA FUNCION OBJETIVO
@@ -206,26 +220,55 @@ public class Algoritmo {
              * y que luego de esto se actualice la lista de vuelos con los valores que se tiene
              * LUEGO DE TODO ESTO RECIEN SE GENERA
              */
-
-            if (rutaSolucion.getCantHorasActual() + listaVecino.
+            if (rutaSolucion.getListaVuelos().isEmpty()){
+                if (rutaSolucion.getCantHorasActual() + listaVecino.
+                 get(i).getDuracion() < cantHorasMaxContinental ) {  
+                    
+                listarcl.add(listaVecino.get(i));
+                }
+            }
+            
+            else{
+                if (
+                      //ESTA LINEA ESTA PARA METERLE HORAS  
+                /*(rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()-1).
+                getFechaLlegada().compareTo(listaVecino.get(i).getFechaPartida())==-1) 
+                && */rutaSolucion.getCantHorasActual() + listaVecino.
+                get(i).getDuracion() < cantHorasMaxContinental ) {  
+//                 Con esto comparas fechas                     
+//                 (rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()).
+//                 getFechaLlegada().compareTo(listaVecino.get(i).getFechaPartida())==-1) 
+//                    
                     //ACA FALTARIA HACER COMPARACION DE QUE LA FECHA DE SALIDA DEL VUELO SEA POSTERIOR
                     //A LA FECHA DE LLEGADA DEL ULTIMO VUELO EN rutaSolucion
                     // Y FILTRAR LOS VUELOS QUE TENGAN DESTINO A ALGUNA CIUDAD QUE YA SE HA TOMADO EN CUENTA
                     //Por ejemplo 1er viaje lima -miami pero hay vuelo miami-lima, para evitar eso,
                     // Se haria un filtro que no tome en cuenta los destinos pasados   
-                    get(i).getDuracion() < cantHorasMaxContinental) {
-                listarcl.add(listaVecino.get(i));
-            }
-
+                   
+                 for (int k=0;k<rutaSolucion.getListaVuelos().size();k++){
+                     if(rutaSolucion.getListaVuelos().get(k).getCodigoCiudadOrigen()==
+                        listaVecino.get(i).getCodigoCiudadDestino()) {
+                         vetado=true;
+                         break;
+                     }
+                 }   
+                if (vetado==false){
+                   listarcl.add(listaVecino.get(i)); 
+                }
+                
+                }
+            }       
             i++;
+            vetado=false;
         }
         return listarcl;
     }
 
     public RutaSolucion escogerVecino(RutaSolucion rutaSol, ArrayList<Vuelo> rcl) {
         Random generadorAleatorio = new Random();
-
-        rutaSol.add(rcl.get(generadorAleatorio.nextInt(rcl.size())), cantPaquetes, getListaCiudades());
+        int valorRandom;
+        valorRandom = generadorAleatorio.nextInt(rcl.size());
+        rutaSol.add(rcl.get(valorRandom), cantPaquetes, getListaCiudades());
         return rutaSol;
     }
 
