@@ -63,7 +63,7 @@ public class TabuSearch {
         int city2 = 0;
         
         int cont = 0;
-        for (int i = 0; i < bestSolution.size(); i++) {
+        for (int i = 0; i < bestSolution.size()-1; i++) {
             for (int j = i+1; j < bestSolution.size(); j++) {                                              
                 cont++;
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j

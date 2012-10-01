@@ -221,7 +221,7 @@
   </simulador.Vuelo>
   <simulador.Vuelo>
     <codVuelo>VUE00021</codVuelo>
-    <codigoCiudadOrigen>37</codigoCiudadOrigen>
+    <codigoCiudadOrigen>36</codigoCiudadOrigen>
     <codigoCiudadDestino>35</codigoCiudadDestino>
     <capacidadCarga>300</capacidadCarga>
     <capacidadDisponible>300</capacidadDisponible>
