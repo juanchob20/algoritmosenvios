@@ -5,6 +5,7 @@
 package grasp;
 
 import com.thoughtworks.xstream.XStream;
+import java.io.BufferedWriter;
 import java.text.*;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -60,7 +61,7 @@ public class Algoritmo {
     /**
      * @param args the command line arguments
      */
-    public void   /*ArrayList<RutaSolucion>*/ ejecutarAlgoritmo() {
+    public void   /*ArrayList<RutaSolucion>*/ ejecutarAlgoritmo() throws IOException {
         // TODO code application logic here
 
         //INICIALIZAR VARIABLES 
@@ -170,6 +171,7 @@ public class Algoritmo {
         }
         
         // Get elapsed time in milliseconds
+        if (resulExp!=null){
         resulExp.setCodigoCiudadOrigen(ciudadOrigen.getCodigo());
         resulExp.setCodigoCiudadDestino(ciudadDestino.getCodigo());
         
@@ -189,6 +191,14 @@ public class Algoritmo {
             fw.close();
         } catch (IOException e) {
             System.out.println(e.toString());
+        }
+        
+        FileWriter fstream = new FileWriter("resultadosGrasp" + " hash "+ System.currentTimeMillis()+".txt" );
+                try (BufferedWriter out = new BufferedWriter(fstream)) {
+                    out.write(resulExp.getValorFuncObjetivo()+","+resulExp.getTiempoNanoSegundos());
+                    out.close();
+                }
+                
         }
  }
 
