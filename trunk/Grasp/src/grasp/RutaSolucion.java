@@ -43,6 +43,7 @@ public class RutaSolucion {
      getListaVuelos().add(vuelo);
      
      if (indiceActual ==0){
+         costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
           costoTotal+=  ciudadActual.getCosto();
          this.cantHorasActual+= vuelo.getDuracion();
      }
@@ -58,7 +59,8 @@ public class RutaSolucion {
      int i=0;
      //DEBIERA IR ACA?
      while (listaCiudades.get(i).getCodigo()!=(vuelo.getCodigoCiudadDestino())) 
-     {i++;}
+     { /* System.out.println("Ciudad buscando "+vuelo.getCodigoCiudadDestino() ); */
+         i++;}
      
      ciudadActual = listaCiudades.get(i);
  }
