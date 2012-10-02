@@ -14,7 +14,6 @@ public class TabuSearch {
 
     private ArrayList<Ciudad> listaCiudades;
     private HashMap ciudades;
-    private HashMap indiceVuelos;
     private MultiKeyMap matrizVuelos;
     private HashMap indicesFor;
     private int contFor;
@@ -31,31 +30,37 @@ public class TabuSearch {
         int indexOrigen = solution.indexOf(ciudadOrigen);                
         int indexDestino = solution.indexOf(ciudadDestino);                
         
-        if (indexOrigen > indexDestino) return Math.random()*100.0+1000.0;
-        List<Ciudad> listaAux =  solution.subList(indexOrigen, indexDestino+1);
+        Double tiempoTotal = 0.0;
+        Double costo = 0.0;
         
-        //imprimeSolucion(listaAux);
+        if (indexOrigen > indexDestino) return Math.random()*100.0+10000.0;
+        List<Ciudad> listaAux =  solution.subList(indexOrigen, indexDestino+1);
         
         Ciudad c1 = listaAux.get(0);   
         Ciudad c2 = listaAux.get(1);
         
         ArrayList<Vuelo> listaV1 = (ArrayList<Vuelo>) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-        if (listaV1 == null || listaV1.isEmpty()) return Math.random()*100.0+1000.0;
+        if (listaV1 == null || listaV1.isEmpty()) return Math.random()*100.0+10000.0;
         Vuelo v1 = obtieneMenor(null,listaV1);
         c1 = c2;
-        Double costo = v1.getCostoPorPaquete()*cantPaquetes;
+        costo += v1.getCostoPorPaquete()*cantPaquetes;
+        //tiempoTotal += v1.getDuracion();
         
         for (int i=2; i<listaAux.size(); i++){
             c2 = listaAux.get(i);
             ArrayList<Vuelo> listaV2 = (ArrayList<Vuelo>) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
-            if (listaV2 == null || listaV2.isEmpty()) return Math.random()*100.0+1000.0;
+            if (listaV2 == null || listaV2.isEmpty()) return Math.random()*100.0+10000.0;
             Vuelo v2 = obtieneMenor(v1,listaV2);
-            if (v2 == null) return Math.random()*100.0+1000.0;            
-            costo += v2.getCostoPorPaquete()*cantPaquetes;
+            if (v2 == null) return Math.random()*100.0+10000.0;  
+            //long tiempoAlmacen = v2.getFechaPartida().getTime() - v1.getFechaLlegada().getTime();           
+            costo += v2.getCostoPorPaquete()*cantPaquetes;// + (tiempoAlmacen/(1000*60*60))*c2.getCosto();
+            //tiempoTotal = tiempoTotal + v2.getDuracion() + (tiempoAlmacen/(1000*60*60));
             v1 = v2;
             c1 = c2;            
         }
-        return costo;
+        
+        //if (envio.getTarifa()<=costo) return Math.random()*100.0+10000.0;
+        return costo;//*tiempoTotal/(envio.getTarifa()-costo);
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution) {
@@ -128,7 +133,7 @@ public class TabuSearch {
                     bestCost = getObjectiveFunctionValue(bestSolution);
                 }
             }
-            if (bestCost < 1000.0) halloSolValida = true;
+            if (bestCost < 10000.0) halloSolValida = true;
         }
         System.out.println("El mejor costo es "+bestCost);
         return bestSolution;
@@ -286,25 +291,6 @@ public class TabuSearch {
             if (halloMenor == false) return null;
             else return primerVuelo;
         }        
-    }
-
-    private ArrayList<Ciudad> obtieneSolucionInicial() {        
-        
-        return null;
-    }
-
-    /**
-     * @return the indiceVuelos
-     */
-    public HashMap getIndiceVuelos() {
-        return indiceVuelos;
-    }
-
-    /**
-     * @param indiceVuelos the indiceVuelos to set
-     */
-    public void setIndiceVuelos(HashMap indiceVuelos) {
-        this.indiceVuelos = indiceVuelos;
     }
 
     public static class CustomComparator implements Comparator<Ciudad> {

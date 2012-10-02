@@ -1,482 +1,450 @@
 <list>
   <simulador.Ciudad>
     <codigo>1</codigo>
-    <siglas>C101</siglas>
-    <nombre>C101</nombre>
-    <continente>CON1</continente>
+    <siglas>LIM</siglas>
+    <nombre>Lima</nombre>
+    <continente>SUD</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>2</codigo>
-    <siglas>C102</siglas>
-    <nombre>C102</nombre>
-    <continente>CON1</continente>
+    <siglas>SAO</siglas>
+    <nombre>Sao Paulo</nombre>
+    <continente>SUD</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>3</codigo>
-    <siglas>C103</siglas>
-    <nombre>C103</nombre>
-    <continente>CON1</continente>
+    <siglas>CAR</siglas>
+    <nombre>Caracas</nombre>
+    <continente>SUD</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>4</codigo>
-    <siglas>C104</siglas>
-    <nombre>C104</nombre>
-    <continente>CON1</continente>
+    <siglas>BOG</siglas>
+    <nombre>Bogota</nombre>
+    <continente>SUD</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>5</codigo>
-    <siglas>C105</siglas>
-    <nombre>C105</nombre>
-    <continente>CON1</continente>
+    <siglas>QUI</siglas>
+    <nombre>Quito</nombre>
+    <continente>SUD</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>6</codigo>
-    <siglas>C106</siglas>
-    <nombre>C106</nombre>
-    <continente>CON1</continente>
+    <siglas>GUA</siglas>
+    <nombre>Guayaquil</nombre>
+    <continente>SUD</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>7</codigo>
-    <siglas>C107</siglas>
-    <nombre>C107</nombre>
-    <continente>CON1</continente>
+    <siglas>BUE</siglas>
+    <nombre>Buenos Aires</nombre>
+    <continente>SUD</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>8</codigo>
-    <siglas>C108</siglas>
-    <nombre>C108</nombre>
-    <continente>CON1</continente>
+    <siglas>ROS</siglas>
+    <nombre>Rosario</nombre>
+    <continente>SUD</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>9</codigo>
-    <siglas>C109</siglas>
-    <nombre>C109</nombre>
-    <continente>CON1</continente>
+    <siglas>MED</siglas>
+    <nombre>Medellin</nombre>
+    <continente>SUD</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>10</codigo>
-    <siglas>C110</siglas>
-    <nombre>C110</nombre>
-    <continente>CON1</continente>
+    <siglas>SAN</siglas>
+    <nombre>Santa Cruz</nombre>
+    <continente>SUD</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>11</codigo>
-    <siglas>C111</siglas>
-    <nombre>C111</nombre>
-    <continente>CON1</continente>
+    <siglas>LAP</siglas>
+    <nombre>La Paz</nombre>
+    <continente>SUD</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>12</codigo>
-    <siglas>C112</siglas>
-    <nombre>C112</nombre>
-    <continente>CON1</continente>
+    <siglas>CUS</siglas>
+    <nombre>Cusco</nombre>
+    <continente>SUD</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>13</codigo>
-    <siglas>C113</siglas>
-    <nombre>C113</nombre>
-    <continente>CON1</continente>
+    <siglas>MON</siglas>
+    <nombre>Montevideo</nombre>
+    <continente>SUD</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>14</codigo>
-    <siglas>C114</siglas>
-    <nombre>C114</nombre>
-    <continente>CON1</continente>
+    <siglas>ASU</siglas>
+    <nombre>Asunci�</nombre>
+    <continente>SUD</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>15</codigo>
-    <siglas>C115</siglas>
-    <nombre>C115</nombre>
-    <continente>CON1</continente>
+    <siglas>SFE</siglas>
+    <nombre>Santa Fe</nombre>
+    <continente>SUD</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>16</codigo>
-    <siglas>C116</siglas>
-    <nombre>C116</nombre>
-    <continente>CON1</continente>
+    <siglas>ARE</siglas>
+    <nombre>Arequipa</nombre>
+    <continente>SUD</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>17</codigo>
-    <siglas>C117</siglas>
-    <nombre>C117</nombre>
-    <continente>CON1</continente>
+    <siglas>TOR</siglas>
+    <nombre>Toronto</nombre>
+    <continente>NOR</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>18</codigo>
-    <siglas>C118</siglas>
-    <nombre>C118</nombre>
-    <continente>CON1</continente>
+    <siglas>MIA</siglas>
+    <nombre>Miami</nombre>
+    <continente>NOR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>19</codigo>
-    <siglas>C119</siglas>
-    <nombre>C119</nombre>
-    <continente>CON1</continente>
+    <siglas>LAX</siglas>
+    <nombre>Los �ngeles</nombre>
+    <continente>NOR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>20</codigo>
-    <siglas>C120</siglas>
-    <nombre>C120</nombre>
-    <continente>CON1</continente>
+    <siglas>LAV</siglas>
+    <nombre>Las Vegas</nombre>
+    <continente>NOR</continente>
+    <costo>8</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>21</codigo>
-    <siglas>C201</siglas>
-    <nombre>C201</nombre>
-    <continente>CON2</continente>
+    <siglas>SJO</siglas>
+    <nombre>San Jose</nombre>
+    <continente>NOR</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>22</codigo>
-    <siglas>C202</siglas>
-    <nombre>C202</nombre>
-    <continente>CON2</continente>
+    <siglas>MON</siglas>
+    <nombre>Montreal</nombre>
+    <continente>NOR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>23</codigo>
-    <siglas>C203</siglas>
-    <nombre>C203</nombre>
-    <continente>CON2</continente>
+    <siglas>BOS</siglas>
+    <nombre>Boston</nombre>
+    <continente>NOR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>24</codigo>
-    <siglas>C204</siglas>
-    <nombre>C204</nombre>
-    <continente>CON2</continente>
+    <siglas>OTT</siglas>
+    <nombre>Ottawa</nombre>
+    <continente>NOR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>25</codigo>
-    <siglas>C205</siglas>
-    <nombre>C205</nombre>
-    <continente>CON2</continente>
+    <siglas>MEX</siglas>
+    <nombre>Ciudad de M�xico</nombre>
+    <continente>NOR</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>26</codigo>
-    <siglas>C206</siglas>
-    <nombre>C206</nombre>
-    <continente>CON2</continente>
+    <siglas>GUAD</siglas>
+    <nombre>Guadalajara</nombre>
+    <continente>NOR</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>27</codigo>
-    <siglas>C207</siglas>
-    <nombre>C207</nombre>
-    <continente>CON2</continente>
+    <siglas>MON</siglas>
+    <nombre>Monterrey</nombre>
+    <continente>NOR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>28</codigo>
-    <siglas>C208</siglas>
-    <nombre>C208</nombre>
-    <continente>CON2</continente>
+    <siglas>TOL</siglas>
+    <nombre>Toluca</nombre>
+    <continente>NOR</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>29</codigo>
-    <siglas>C209</siglas>
-    <nombre>C209</nombre>
-    <continente>CON2</continente>
+    <siglas>HAB</siglas>
+    <nombre>La Habana</nombre>
+    <continente>NOR</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>30</codigo>
-    <siglas>C210</siglas>
-    <nombre>C210</nombre>
-    <continente>CON2</continente>
+    <siglas>MAN</siglas>
+    <nombre>Managua</nombre>
+    <continente>NOR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>31</codigo>
-    <siglas>C211</siglas>
-    <nombre>C211</nombre>
-    <continente>CON2</continente>
+    <siglas>SDO</siglas>
+    <nombre>Santo Domingo</nombre>
+    <continente>NOR</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>32</codigo>
-    <siglas>C212</siglas>
-    <nombre>C212</nombre>
-    <continente>CON2</continente>
+    <siglas>PAN</siglas>
+    <nombre>Ciudad de Panam�</nombre>
+    <continente>NOR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>33</codigo>
-    <siglas>C213</siglas>
-    <nombre>C213</nombre>
-    <continente>CON2</continente>
+    <siglas>PAR</siglas>
+    <nombre>Paris</nombre>
+    <continente>EUR</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>34</codigo>
-    <siglas>C214</siglas>
-    <nombre>C214</nombre>
-    <continente>CON2</continente>
+    <siglas>ROM</siglas>
+    <nombre>Roma</nombre>
+    <continente>EUR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>35</codigo>
-    <siglas>C215</siglas>
-    <nombre>C215</nombre>
-    <continente>CON2</continente>
+    <siglas>PRA</siglas>
+    <nombre>Praga</nombre>
+    <continente>EUR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>36</codigo>
-    <siglas>C216</siglas>
-    <nombre>C216</nombre>
-    <continente>CON2</continente>
+    <siglas>LON</siglas>
+    <nombre>Londres</nombre>
+    <continente>EUR</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>37</codigo>
-    <siglas>C217</siglas>
-    <nombre>C217</nombre>
-    <continente>CON2</continente>
+    <siglas>BRU</siglas>
+    <nombre>Bruselas</nombre>
+    <continente>EUR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>38</codigo>
-    <siglas>C218</siglas>
-    <nombre>C218</nombre>
-    <continente>CON2</continente>
+    <siglas>VEN</siglas>
+    <nombre>Venecia</nombre>
+    <continente>EUR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>39</codigo>
-    <siglas>C219</siglas>
-    <nombre>C219</nombre>
-    <continente>CON2</continente>
+    <siglas>LIS</siglas>
+    <nombre>Lisboa</nombre>
+    <continente>EUR</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>40</codigo>
-    <siglas>C220</siglas>
-    <nombre>C220</nombre>
-    <continente>CON2</continente>
+    <siglas>BAR</siglas>
+    <nombre>Barcelona</nombre>
+    <continente>EUR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>41</codigo>
-    <siglas>C301</siglas>
-    <nombre>C301</nombre>
-    <continente>CON3</continente>
+    <siglas>EST</siglas>
+    <nombre>Estambul</nombre>
+    <continente>EUR</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>42</codigo>
-    <siglas>C302</siglas>
-    <nombre>C302</nombre>
-    <continente>CON3</continente>
+    <siglas>AMS</siglas>
+    <nombre>Amsterdam</nombre>
+    <continente>EUR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>43</codigo>
-    <siglas>C303</siglas>
-    <nombre>C303</nombre>
-    <continente>CON3</continente>
+    <siglas>ATE</siglas>
+    <nombre>Atenas</nombre>
+    <continente>EUR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>44</codigo>
-    <siglas>C304</siglas>
-    <nombre>C304</nombre>
-    <continente>CON3</continente>
+    <siglas>MAD</siglas>
+    <nombre>Madrid</nombre>
+    <continente>EUR</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>45</codigo>
-    <siglas>C305</siglas>
-    <nombre>C305</nombre>
-    <continente>CON3</continente>
+    <siglas>BUD</siglas>
+    <nombre>Budapest</nombre>
+    <continente>EUR</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>46</codigo>
-    <siglas>C306</siglas>
-    <nombre>C306</nombre>
-    <continente>CON3</continente>
+    <siglas>FLO</siglas>
+    <nombre>Florencia</nombre>
+    <continente>EUR</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>47</codigo>
-    <siglas>C307</siglas>
-    <nombre>C307</nombre>
-    <continente>CON3</continente>
+    <siglas>VER</siglas>
+    <nombre>Berlin</nombre>
+    <continente>EUR</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>48</codigo>
-    <siglas>C308</siglas>
-    <nombre>C308</nombre>
-    <continente>CON3</continente>
+    <siglas>SOF</siglas>
+    <nombre>Sof�</nombre>
+    <continente>EUR</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>49</codigo>
-    <siglas>C309</siglas>
-    <nombre>C309</nombre>
-    <continente>CON3</continente>
+    <siglas>KAB</siglas>
+    <nombre>Kabul</nombre>
+    <continente>ASI</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>50</codigo>
-    <siglas>C310</siglas>
-    <nombre>C310</nombre>
-    <continente>CON3</continente>
+    <siglas>ERE</siglas>
+    <nombre>Erev�</nombre>
+    <continente>ASI</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>51</codigo>
-    <siglas>C311</siglas>
-    <nombre>C311</nombre>
-    <continente>CON3</continente>
+    <siglas>PEK</siglas>
+    <nombre>Pek�</nombre>
+    <continente>ASI</continente>
+    <costo>3</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>52</codigo>
-    <siglas>C312</siglas>
-    <nombre>C312</nombre>
-    <continente>CON3</continente>
+    <siglas>SEU</siglas>
+    <nombre>Se�</nombre>
+    <continente>ASI</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>53</codigo>
-    <siglas>C313</siglas>
-    <nombre>C313</nombre>
-    <continente>CON3</continente>
+    <siglas>NDE</siglas>
+    <nombre>Nueva Delhi</nombre>
+    <continente>ASI</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>54</codigo>
-    <siglas>C314</siglas>
-    <nombre>C314</nombre>
-    <continente>CON3</continente>
+    <siglas>MAN</siglas>
+    <nombre>Manila</nombre>
+    <continente>ASI</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>55</codigo>
-    <siglas>C315</siglas>
-    <nombre>C315</nombre>
-    <continente>CON3</continente>
+    <siglas>TIF</siglas>
+    <nombre>Tiflis</nombre>
+    <continente>ASI</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>56</codigo>
-    <siglas>C316</siglas>
-    <nombre>C316</nombre>
-    <continente>CON3</continente>
+    <siglas>BAG</siglas>
+    <nombre>Bagdad</nombre>
+    <continente>ASI</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>57</codigo>
-    <siglas>C317</siglas>
-    <nombre>C317</nombre>
-    <continente>CON3</continente>
+    <siglas>JER</siglas>
+    <nombre>Jerusal�</nombre>
+    <continente>ASI</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>58</codigo>
-    <siglas>C318</siglas>
-    <nombre>C318</nombre>
-    <continente>CON3</continente>
+    <siglas>KUA</siglas>
+    <nombre>Kuala Lumpur</nombre>
+    <continente>ASI</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>59</codigo>
-    <siglas>C319</siglas>
-    <nombre>C319</nombre>
-    <continente>CON3</continente>
+    <siglas>ULA</siglas>
+    <nombre>Ul�n Bator</nombre>
+    <continente>ASI</continente>
+    <costo>8</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>60</codigo>
-    <siglas>C320</siglas>
-    <nombre>C320</nombre>
-    <continente>CON3</continente>
+    <siglas>DOH</siglas>
+    <nombre>Doha</nombre>
+    <continente>ASI</continente>
+    <costo>7</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>61</codigo>
-    <siglas>C401</siglas>
-    <nombre>C401</nombre>
-    <continente>CON4</continente>
+    <siglas>SIN</siglas>
+    <nombre>Singapur</nombre>
+    <continente>ASI</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>62</codigo>
-    <siglas>C402</siglas>
-    <nombre>C402</nombre>
-    <continente>CON4</continente>
+    <siglas>ANK</siglas>
+    <nombre>Ankara</nombre>
+    <continente>ASI</continente>
+    <costo>6</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>63</codigo>
-    <siglas>C403</siglas>
-    <nombre>C403</nombre>
-    <continente>CON4</continente>
+    <siglas>HAN</siglas>
+    <nombre>Han�</nombre>
+    <continente>ASI</continente>
+    <costo>5</costo>
   </simulador.Ciudad>
   <simulador.Ciudad>
     <codigo>64</codigo>
-    <siglas>C404</siglas>
-    <nombre>C404</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>65</codigo>
-    <siglas>C405</siglas>
-    <nombre>C405</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>66</codigo>
-    <siglas>C406</siglas>
-    <nombre>C406</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>67</codigo>
-    <siglas>C407</siglas>
-    <nombre>C407</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>68</codigo>
-    <siglas>C408</siglas>
-    <nombre>C408</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>69</codigo>
-    <siglas>C409</siglas>
-    <nombre>C409</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>70</codigo>
-    <siglas>C410</siglas>
-    <nombre>C410</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>71</codigo>
-    <siglas>C411</siglas>
-    <nombre>C411</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>72</codigo>
-    <siglas>C412</siglas>
-    <nombre>C412</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>73</codigo>
-    <siglas>C413</siglas>
-    <nombre>C413</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>74</codigo>
-    <siglas>C414</siglas>
-    <nombre>C414</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>75</codigo>
-    <siglas>C415</siglas>
-    <nombre>C415</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>76</codigo>
-    <siglas>C416</siglas>
-    <nombre>C416</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>77</codigo>
-    <siglas>C417</siglas>
-    <nombre>C417</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>78</codigo>
-    <siglas>C418</siglas>
-    <nombre>C418</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>79</codigo>
-    <siglas>C419</siglas>
-    <nombre>C419</nombre>
-    <continente>CON4</continente>
-  </simulador.Ciudad>
-  <simulador.Ciudad>
-    <codigo>80</codigo>
-    <siglas>C420</siglas>
-    <nombre>C420</nombre>
-    <continente>CON4</continente>
+    <siglas>BAN</siglas>
+    <nombre>Bangkok</nombre>
+    <continente>ASI</continente>
+    <costo>4</costo>
   </simulador.Ciudad>
 </list>
