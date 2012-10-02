@@ -33,7 +33,7 @@ public class Algoritmo {
     //PARAMETROS:
     //CON ESTO PRUEBAS EL ALGORITMO
     private Ciudad ciudadInicio = new Ciudad(18, "C203", "C203", "CON2",10);
-    private Ciudad ciudadDestino = new Ciudad(7, "C219", "C219", "CON2", 5);
+    private Ciudad ciudadDestino = new Ciudad(12, "C219", "C219", "CON2", 5);
     private int cantidadPaquetes;
     private int tipoDestino;
     //CONSTANTES(PARTE DE LA CONFIGURACION):
@@ -59,11 +59,11 @@ public class Algoritmo {
         listaCiudades = leerCiudades();
         estructuraVuelos = new ArrayList<>();
         listaSolucionesParaTabu = new ArrayList<>();
-        
+        boolean esPartedeSolucionTabu;
         rellenarVuelos(estructuraVuelos, listaVuelos);
         //DE LA LISTA DE VUELOS SE CREA EL ARREGLO 3D QUE FACILITA EL MANEJO
         int i = 0;
-        while (i < 20) { /*Condicion de Parada, iteraciones del grasp*/
+        while (i < 2000) { /*Condicion de Parada, iteraciones del grasp*/
             
             boolean hayRcl =false ;
             boolean existeSolucionParcial=false;
@@ -116,7 +116,17 @@ public class Algoritmo {
 //                    } catch (IOException e) {
 //                        System.out.println(e.toString());
 //                    }
-            listaSolucionesParaTabu.add(rutaSolucion);        
+            esPartedeSolucionTabu=false;    
+            for (int j=0;j<listaSolucionesParaTabu.size();j++){
+                if(listaSolucionesParaTabu.get(j).getListaVuelos().equals(rutaSolucion.getListaVuelos())){
+                    esPartedeSolucionTabu =true;
+                };
+                        
+            }
+            if(!esPartedeSolucionTabu) {
+                listaSolucionesParaTabu.add(rutaSolucion);
+            }
+            
             }
             
 //            if (solucionFinal == null && existeSolucionParcial){
