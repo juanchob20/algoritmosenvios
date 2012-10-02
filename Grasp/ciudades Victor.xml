@@ -113,450 +113,338 @@
   </grasp.Ciudad>
   <grasp.Ciudad>
     <codigo>17</codigo>
-    <siglas>TRU</siglas>
-    <nombre>Trujillo</nombre>
-    <continente>SUD</continente>
-    <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>18</codigo>
-    <siglas>SAN</siglas>
-    <nombre>Santiago de Chile</nombre>
-    <continente>SUD</continente>
-    <costo>5</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>19</codigo>
-    <siglas>RIO</siglas>
-    <nombre>Rio de Janeiro</nombre>
-    <continente>SUD</continente>
-    <costo>3</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>20</codigo>
-    <siglas>LAP</siglas>
-    <nombre>La Plata</nombre>
-    <continente>SUD</continente>
-    <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>21</codigo>
     <siglas>TOR</siglas>
     <nombre>Toronto</nombre>
     <continente>NOR</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>22</codigo>
+    <codigo>18</codigo>
     <siglas>MIA</siglas>
     <nombre>Miami</nombre>
     <continente>NOR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>23</codigo>
+    <codigo>19</codigo>
     <siglas>LAX</siglas>
     <nombre>Los �ngeles</nombre>
     <continente>NOR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>24</codigo>
+    <codigo>20</codigo>
     <siglas>LAV</siglas>
     <nombre>Las Vegas</nombre>
     <continente>NOR</continente>
     <costo>8</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>25</codigo>
+    <codigo>21</codigo>
     <siglas>SJO</siglas>
     <nombre>San Jose</nombre>
     <continente>NOR</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>26</codigo>
+    <codigo>22</codigo>
     <siglas>MON</siglas>
     <nombre>Montreal</nombre>
     <continente>NOR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>27</codigo>
+    <codigo>23</codigo>
     <siglas>BOS</siglas>
     <nombre>Boston</nombre>
     <continente>NOR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>28</codigo>
+    <codigo>24</codigo>
     <siglas>OTT</siglas>
     <nombre>Ottawa</nombre>
     <continente>NOR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>29</codigo>
+    <codigo>25</codigo>
     <siglas>MEX</siglas>
     <nombre>Ciudad de M�xico</nombre>
     <continente>NOR</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>30</codigo>
+    <codigo>26</codigo>
     <siglas>GUAD</siglas>
     <nombre>Guadalajara</nombre>
     <continente>NOR</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>31</codigo>
+    <codigo>27</codigo>
     <siglas>MON</siglas>
     <nombre>Monterrey</nombre>
     <continente>NOR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>32</codigo>
+    <codigo>28</codigo>
     <siglas>TOL</siglas>
     <nombre>Toluca</nombre>
     <continente>NOR</continente>
     <costo>3</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>33</codigo>
+    <codigo>29</codigo>
     <siglas>HAB</siglas>
     <nombre>La Habana</nombre>
     <continente>NOR</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>34</codigo>
+    <codigo>30</codigo>
     <siglas>MAN</siglas>
     <nombre>Managua</nombre>
     <continente>NOR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>35</codigo>
+    <codigo>31</codigo>
     <siglas>SDO</siglas>
     <nombre>Santo Domingo</nombre>
     <continente>NOR</continente>
     <costo>3</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>36</codigo>
+    <codigo>32</codigo>
     <siglas>PAN</siglas>
     <nombre>Ciudad de Panam�</nombre>
     <continente>NOR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>37</codigo>
-    <siglas>NYO</siglas>
-    <nombre>Nueva York</nombre>
-    <continente>NOR</continente>
-    <costo>6</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>38</codigo>
-    <siglas>WAS</siglas>
-    <nombre>Washington</nombre>
-    <continente>NOR</continente>
-    <costo>3</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>39</codigo>
-    <siglas>HAW</siglas>
-    <nombre>Hawaii</nombre>
-    <continente>NOR</continente>
-    <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>40</codigo>
-    <siglas>ALA</siglas>
-    <nombre>Alaska</nombre>
-    <continente>NOR</continente>
-    <costo>2</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>41</codigo>
+    <codigo>33</codigo>
     <siglas>PAR</siglas>
     <nombre>Paris</nombre>
     <continente>EUR</continente>
     <costo>3</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>42</codigo>
+    <codigo>34</codigo>
     <siglas>ROM</siglas>
     <nombre>Roma</nombre>
     <continente>EUR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>43</codigo>
+    <codigo>35</codigo>
     <siglas>PRA</siglas>
     <nombre>Praga</nombre>
     <continente>EUR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>44</codigo>
+    <codigo>36</codigo>
     <siglas>LON</siglas>
     <nombre>Londres</nombre>
     <continente>EUR</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>45</codigo>
+    <codigo>37</codigo>
     <siglas>BRU</siglas>
     <nombre>Bruselas</nombre>
     <continente>EUR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>46</codigo>
+    <codigo>38</codigo>
     <siglas>VEN</siglas>
     <nombre>Venecia</nombre>
     <continente>EUR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>47</codigo>
+    <codigo>39</codigo>
     <siglas>LIS</siglas>
     <nombre>Lisboa</nombre>
     <continente>EUR</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>48</codigo>
+    <codigo>40</codigo>
     <siglas>BAR</siglas>
     <nombre>Barcelona</nombre>
     <continente>EUR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>49</codigo>
+    <codigo>41</codigo>
     <siglas>EST</siglas>
     <nombre>Estambul</nombre>
     <continente>EUR</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>50</codigo>
+    <codigo>42</codigo>
     <siglas>AMS</siglas>
     <nombre>Amsterdam</nombre>
     <continente>EUR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>51</codigo>
+    <codigo>43</codigo>
     <siglas>ATE</siglas>
     <nombre>Atenas</nombre>
     <continente>EUR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>52</codigo>
+    <codigo>44</codigo>
     <siglas>MAD</siglas>
     <nombre>Madrid</nombre>
     <continente>EUR</continente>
     <costo>3</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>53</codigo>
+    <codigo>45</codigo>
     <siglas>BUD</siglas>
     <nombre>Budapest</nombre>
     <continente>EUR</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>54</codigo>
+    <codigo>46</codigo>
     <siglas>FLO</siglas>
     <nombre>Florencia</nombre>
     <continente>EUR</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>55</codigo>
+    <codigo>47</codigo>
     <siglas>VER</siglas>
     <nombre>Berlin</nombre>
     <continente>EUR</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>56</codigo>
+    <codigo>48</codigo>
     <siglas>SOF</siglas>
     <nombre>Sof�</nombre>
     <continente>EUR</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>57</codigo>
-    <siglas>TAL</siglas>
-    <nombre>Tallin</nombre>
-    <continente>EUR</continente>
-    <costo>6</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>58</codigo>
-    <siglas>DUB</siglas>
-    <nombre>Dubl�</nombre>
-    <continente>EUR</continente>
-    <costo>5</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>59</codigo>
-    <siglas>VIL</siglas>
-    <nombre>Vilna</nombre>
-    <continente>EUR</continente>
-    <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>60</codigo>
-    <siglas>VAR</siglas>
-    <nombre>Varsovia</nombre>
-    <continente>EUR</continente>
-    <costo>5</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>61</codigo>
+    <codigo>49</codigo>
     <siglas>KAB</siglas>
     <nombre>Kabul</nombre>
     <continente>ASI</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>62</codigo>
+    <codigo>50</codigo>
     <siglas>ERE</siglas>
     <nombre>Erev�</nombre>
     <continente>ASI</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>63</codigo>
+    <codigo>51</codigo>
     <siglas>PEK</siglas>
     <nombre>Pek�</nombre>
     <continente>ASI</continente>
     <costo>3</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>64</codigo>
+    <codigo>52</codigo>
     <siglas>SEU</siglas>
     <nombre>Se�</nombre>
     <continente>ASI</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>65</codigo>
+    <codigo>53</codigo>
     <siglas>NDE</siglas>
     <nombre>Nueva Delhi</nombre>
     <continente>ASI</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>66</codigo>
+    <codigo>54</codigo>
     <siglas>MAN</siglas>
     <nombre>Manila</nombre>
     <continente>ASI</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>67</codigo>
+    <codigo>55</codigo>
     <siglas>TIF</siglas>
     <nombre>Tiflis</nombre>
     <continente>ASI</continente>
     <costo>4</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>68</codigo>
+    <codigo>56</codigo>
     <siglas>BAG</siglas>
     <nombre>Bagdad</nombre>
     <continente>ASI</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>69</codigo>
+    <codigo>57</codigo>
     <siglas>JER</siglas>
     <nombre>Jerusal�</nombre>
     <continente>ASI</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>70</codigo>
+    <codigo>58</codigo>
     <siglas>KUA</siglas>
     <nombre>Kuala Lumpur</nombre>
     <continente>ASI</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>71</codigo>
+    <codigo>59</codigo>
     <siglas>ULA</siglas>
     <nombre>Ul�n Bator</nombre>
     <continente>ASI</continente>
     <costo>8</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>72</codigo>
+    <codigo>60</codigo>
     <siglas>DOH</siglas>
     <nombre>Doha</nombre>
     <continente>ASI</continente>
     <costo>7</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>73</codigo>
+    <codigo>61</codigo>
     <siglas>SIN</siglas>
     <nombre>Singapur</nombre>
     <continente>ASI</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>74</codigo>
+    <codigo>62</codigo>
     <siglas>ANK</siglas>
     <nombre>Ankara</nombre>
     <continente>ASI</continente>
     <costo>6</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>75</codigo>
+    <codigo>63</codigo>
     <siglas>HAN</siglas>
     <nombre>Han�</nombre>
     <continente>ASI</continente>
     <costo>5</costo>
   </grasp.Ciudad>
   <grasp.Ciudad>
-    <codigo>76</codigo>
+    <codigo>64</codigo>
     <siglas>BAN</siglas>
     <nombre>Bangkok</nombre>
     <continente>ASI</continente>
     <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>77</codigo>
-    <siglas>HON</siglas>
-    <nombre>Hong Kong</nombre>
-    <continente>ASI</continente>
-    <costo>3</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>78</codigo>
-    <siglas>DAM</siglas>
-    <nombre>Damasco</nombre>
-    <continente>ASI</continente>
-    <costo>3</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>79</codigo>
-    <siglas>TOK</siglas>
-    <nombre>Tokio</nombre>
-    <continente>ASI</continente>
-    <costo>4</costo>
-  </grasp.Ciudad>
-  <grasp.Ciudad>
-    <codigo>80</codigo>
-    <siglas>RIA</siglas>
-    <nombre>Riad</nombre>
-    <continente>ASI</continente>
-    <costo>6</costo>
   </grasp.Ciudad>
 </list>

@@ -30,20 +30,32 @@ public class Algoritmo {
     private ArrayList<Vuelo> listaVecinos;
     private RutaSolucion rutaSolucion;
     private RutaSolucion solucionFinal;
+    public static Envio envio = leerXMLEnvio();
+    public static int tarifa = envio.tarifa;
     //PARAMETROS:
+    // DE EXPERIMENTACION:
+    
+        private int numeroExperimentos=10;
+        private Ciudad ciudadOrigen = new Ciudad(envio.ciudadOrigen, "", "", "",0);
+        private Ciudad ciudadDestino = new Ciudad(envio.ciudadDestino, "", "", "", 0);
+       //Cuantas veces corremos el experimento:
+       private ArrayList<resultadoExperimentación> listaExperimentos;
+       private resultadoExperimentación resulExp;
+       
+       //
     //CON ESTO PRUEBAS EL ALGORITMO
-    private Ciudad ciudadInicio = new Ciudad(15, "C203", "C203", "CON2",10);
-    private Ciudad ciudadDestino = new Ciudad(1, "C219", "C219", "CON2", 5);
-    private int cantidadPaquetes;
+
     private int tipoDestino;
     //CONSTANTES(PARTE DE LA CONFIGURACION):
+    
     public static long cantHorasMaxContinental = 200; // esto se tiene que cambiar
     public static long cantHorasMaxInter = 48;
     public static double alfa = 0.6;
     public static int cantMaxVecinos = 15;
     public static int cantMaxCiudades = 100;
     public static int cantMaxVuelosPorArista = 20;
-    public static int cantPaquetes = 1;
+    public static int cantPaquetes = envio.cantidadPaquetes;
+    
 
     /**
      * @param args the command line arguments
@@ -54,6 +66,7 @@ public class Algoritmo {
         //INICIALIZAR VARIABLES 
 
         //CARGO LA INFORMACION A VUELOS
+        // Get current time
         
         listaVuelos = leerVuelos();
         listaCiudades = leerCiudades();
@@ -62,6 +75,12 @@ public class Algoritmo {
         rellenarVuelos(estructuraVuelos, listaVuelos);
         //DE LA LISTA DE VUELOS SE CREA EL ARREGLO 3D QUE FACILITA EL MANEJO
         int i = 0;
+        int j = 0;
+        listaExperimentos = new ArrayList<>();
+ 
+        
+        resulExp = new resultadoExperimentación();
+        long start = System.nanoTime(); 
         while (i < 2000) { /*Condicion de Parada, iteraciones del grasp*/
             boolean hayRcl =false ;
             boolean existeSolucionParcial=false;
@@ -69,7 +88,7 @@ public class Algoritmo {
             rcl = new ArrayList<>();
             //SE INICIALIZA LA RUTA SOLUCION SIN VUELOS PERO CON CIUDAD ORIGEN
             rutaSolucion = null;
-            rutaSolucion = new RutaSolucion(ciudadInicio);
+            rutaSolucion = new RutaSolucion(ciudadOrigen);
             listaVecinos = new ArrayList<>();
             
             do { //ACA SE BUSCA ITERAR HASTA FORMAR  UNA SOLUCION
@@ -122,19 +141,25 @@ public class Algoritmo {
                 
             }
             
-            
-            if ((existeSolucionParcial) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
+            if ((existeSolucionParcial) && ((funcObjetivoSol(solucionFinal) >funcObjetivoSol(rutaSolucion) ))) {
+                //descomentar el if para caso de contar solo con costo
+            //if ((existeSolucionParcial) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
                 //listaSolucionesParaTabu.add(rutaSolucion); 
                 solucionFinal = rutaSolucion;
             }
             
             i++;
-            System.out.println(i);
+            //System.out.println(i);
         }
         //return listaSolucionesParaTabu;
+         
+        long elapsedTimeNano = System.nanoTime()-start;
+        System.out.println("Nanosegundos:" + elapsedTimeNano);
+        float elapsedTimeSeg = elapsedTimeNano/1000000000F;
+        //System.out.println("MIliSegundos:" + elapsedTimeMili);
+        
         XStream xs = new XStream();
         Scanner in = new Scanner(System.in);
-
         String temp = xs.toXML(solucionFinal);
         try {
             FileWriter fw = new FileWriter("Solucion.xml");
@@ -143,7 +168,29 @@ public class Algoritmo {
         } catch (IOException e) {
             System.out.println(e.toString());
         }
-    }
+        
+        // Get elapsed time in milliseconds
+        resulExp.setCodigoCiudadOrigen(ciudadOrigen.getCodigo());
+        resulExp.setCodigoCiudadDestino(ciudadDestino.getCodigo());
+        
+        resulExp.setCostoSolucion(solucionFinal.getCostoTotal());
+        resulExp.setTiempoNanoSegundos(elapsedTimeNano);
+        resulExp.setTiempoSegundos(elapsedTimeSeg);
+        resulExp.setValorFuncObjetivo(funcObjetivoSol(solucionFinal));
+        System.out.println(j);
+       
+    
+       
+        temp = xs.toXML(resulExp);
+       
+        try {
+            FileWriter fw = new FileWriter("Experimentacion Nodos" + ciudadOrigen.getCodigo() + "-" + ciudadDestino.getCodigo()+ " hash "+ System.currentTimeMillis()+ ".xml");
+            fw.write(temp);
+            fw.close();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
+ }
 
     public void rellenarVuelos(ArrayList<ArrayList<ArrayList<Vuelo>>> estructuraVuelos, ArrayList<Vuelo> listaVuelos) {
         int i, j;
@@ -205,16 +252,18 @@ public class Algoritmo {
         }
 
         sorter.sort(listaVecino);
-        beta = listaVecino.get(0).getCostoPorPaquete();
+        //PARA COSTO SE USA EL DE ARRIBA
+        //beta = listaVecino.get(0).getCostoPorPaquete();
+        beta = funcObjetivoVuelo( listaVecino.get(0));
         //verificar que el quicksort está ordenando de menor a mayor
-        tao = listaVecino.get(listaVecino.size() - 1).getCostoPorPaquete();
+        tao = funcObjetivoVuelo(listaVecino.get(listaVecino.size() - 1));
         limite = beta + alfa * (tao - beta);
         
         int i = 0;
 
         //CORE DE LA FUNCION OBJETIVO
 
-        while (i < listaVecino.size() && listaVecino.get(i).getCostoPorPaquete() <= limite) {
+        while (i < listaVecino.size() && funcObjetivoVuelo( listaVecino.get(i)) <= limite) {
             //Condicion para que llegada sea depues que salida
             //Acá tengo que poner que la fecha salida sea posterior a la hora actual
             //también verificar que el almacen de llegada tenga capacidad
@@ -339,7 +388,7 @@ public class Algoritmo {
         ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
         try {
             XStream xs = new XStream();
-            FileReader fr = new FileReader("ciudades.xml");
+            FileReader fr = new FileReader("ciudades Victor.xml");
             ciudades = (ArrayList<Ciudad>) xs.fromXML(fr);
             fr.close();
         } catch (IOException e) {
@@ -349,7 +398,41 @@ public class Algoritmo {
         }
         return ciudades;
     }
+    
+    public static Envio leerXMLEnvio() {
+        // TODO Auto-generated method stub
+        Envio envioaux = null;
+        try {
+            XStream xs = new XStream();
+            FileReader fr = new FileReader("Envio.xml");
+            envioaux= (Envio) xs.fromXML(fr);
+            fr.close();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        } catch (ClassCastException e2) {
+            System.out.println(e2.toString());
+        }
+        return envioaux;
+    }
 
+    
+    public double funcObjetivoVuelo(Vuelo vuelo){
+        double valorObjetivo;
+        valorObjetivo = (vuelo.getDuracion()*vuelo.getCostoPorPaquete()*cantPaquetes)/(tarifa-vuelo.getCostoPorPaquete()*cantPaquetes);
+        return valorObjetivo;
+    }
+    
+    public double funcObjetivoSol(RutaSolucion sol){
+        if (sol.getListaVuelos()==null || sol.getListaVuelos().isEmpty()){
+            return 1000000;
+        }
+        else{
+             double valorObjetivo;
+        valorObjetivo = (sol.getCantHorasActual()*sol.getCostoTotal() /(tarifa -sol.getCostoTotal()));
+        return valorObjetivo;    
+        }
+        
+    }
     /**
      * @return the estructuraVuelos
      */
