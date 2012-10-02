@@ -1,4 +1,4 @@
-package inputGrasp;
+package tabu;
 
 /*
  * To change this template, choose Tools | Templates
@@ -6,6 +6,7 @@ package inputGrasp;
  */
 
 
+import Data.Vuelo;
 import java.util.ArrayList;
 import java.util.Collections;
 

@@ -1,4 +1,4 @@
-package inputGrasp;
+package tabu;
 
 /*
  * To change this template, choose Tools | Templates
@@ -6,9 +6,9 @@ package inputGrasp;
  */
 
 
+import Data.Ciudad;
+import Data.Vuelo;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -39,22 +39,10 @@ public class RutaSolucion {
  
  
  public void add(Vuelo vuelo, int cantidadPaquetes, ArrayList<Ciudad> listaCiudades){
-     
      getListaVuelos().add(vuelo);
-     
-     if (indiceActual ==0){
-         
-         this.cantHorasActual+= vuelo.getDuracion();
-     }
-     else{
-         
-         costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
-         
-         this.cantHorasActual+= vuelo.getDuracion();
-     }
      indiceActual++;
-     
-     
+     costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
+     this.cantHorasActual+=vuelo.getDuracion();
      int i=0;
      //DEBIERA IR ACA?
      while (listaCiudades.get(i).getCodigo()!=(vuelo.getCodigoCiudadDestino())) 
@@ -142,7 +130,5 @@ public class RutaSolucion {
     /**
      * @return the listaVuelos
      */
-public long DiferenciaFechasEnHora(Date a, Date b, TimeUnit units) {
-        return units.convert(a.getTime()-b.getTime(), TimeUnit.HOURS);
-   }
+
 }

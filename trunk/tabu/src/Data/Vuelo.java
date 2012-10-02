@@ -11,7 +11,7 @@ import java.util.Date;
  * @author kat
  */
 public class Vuelo {
-    private String codVuelo;
+   private String codVuelo;
     private int codigoCiudadOrigen;
     private int codigoCiudadDestino;
     private int capacidadCarga;
@@ -19,9 +19,27 @@ public class Vuelo {
     private Date FechaPartida;
     private Date fechaLlegada;
     private double duracion;
+    private Date FechaPartidaReal;
+    private Date FechaLlegadaReal;
     private double costoPorPaquete;
     private String codigoEstado;
     
+    public Vuelo(int cOrigen, int cDestino, int cCarga, int cDisponible, Date fPartida, Date fLlegada,
+                double durac, double costoPaquete, String codigo){
+        this.codigoCiudadOrigen = cOrigen;
+        this.codigoCiudadDestino = cDestino;
+        this.capacidadCarga = cCarga;
+        this.capacidadDisponible = cDisponible;
+        this.FechaPartida = fPartida;
+        this.fechaLlegada = fLlegada;
+        //this.FechaPartidaReal = fPartidaReal;
+        //this.FechaLlegadaReal = fLlegadaReal;
+        this.duracion = durac;
+        this.costoPorPaquete =  costoPaquete;
+        //this.codigoEstado = codEstado;
+        this.codVuelo = codigo;
+    }
+
     public Vuelo() {
     }
 
@@ -56,6 +74,14 @@ public class Vuelo {
     public double getDuracion() {
         return duracion;
     }
+/*
+    public Date getFechaPartidaReal() {
+        return FechaPartidaReal;
+    }
+
+    public Date getFechaLlegadaReal() {
+        return FechaLlegadaReal;
+    }*/
 
     public double getCostoPorPaquete() {
         return costoPorPaquete;
@@ -95,7 +121,15 @@ public class Vuelo {
 
     public void setDuracion(double duracion) {
         this.duracion = duracion;
-    } 
+    }
+
+   /* public void setFechaPartidaReal(Date FechaPartidaReal) {
+        this.FechaPartidaReal = FechaPartidaReal;
+    }
+
+    public void setFechaLlegadaReal(Date FechaLlegadaReal) {
+        this.FechaLlegadaReal = FechaLlegadaReal;
+    }*/
 
     public void setCostoPorPaquete(double costoPorPaquete) {
         this.costoPorPaquete = costoPorPaquete;
@@ -104,4 +138,5 @@ public class Vuelo {
     public void setCodigoEstado(String codigoEstado) {
         this.codigoEstado = codigoEstado;
     }
+    
 }
