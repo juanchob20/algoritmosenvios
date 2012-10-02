@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.apache.commons.collections.map.MultiKeyMap;
 import org.xml.sax.SAXException;
-import tabu.Algoritmo;
 import tabu.TabuSearch;
 
 /**
@@ -153,17 +152,9 @@ public class Main {
                 indiceCiudades.put(c.getCodigo(), c);
             }                 
             for (int i = 0; i < listaEnvios.size(); i++) {
-                Algoritmo alg = new Algoritmo();
-                alg.setCiudadInicio((Ciudad)indiceCiudades.get(listaEnvios.get(i).getCiudadOrigen()));
-                alg.setCiudadDestino((Ciudad)indiceCiudades.get(listaEnvios.get(i).getCiudadDestino()));
-                ArrayList<Integer> indicesCiudadesReducidas = alg.ejecutarAlgoritmo();
-                ArrayList<Ciudad> ciudadesReducidas = new ArrayList<>();
-                for (int j = 0; j < indicesCiudadesReducidas.size(); j++){
-                    ciudadesReducidas.add((Ciudad)indiceCiudades.get(indicesCiudadesReducidas.get(j)));
-                }              
-                if (ciudadesReducidas.isEmpty()){
-                    System.out.println("No se encontraron resultados");
-                    continue;
+                ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(i));
+                if (ciudadesReducidas.isEmpty() || ciudadesReducidas == null){
+                    System.out.println("Verificar codigos de ciudades en el envio");
                 }
                 MultiKeyMap matrizVuelos = armarMatrizVuelos(i+1);                 
                 TabuSearch tabu = new TabuSearch();                
@@ -172,14 +163,28 @@ public class Main {
                 tabu.setMatrizVuelos(matrizVuelos);
                 tabu.setNroIteraciones(100);
                 tabu.setCiudades(indiceCiudades);
-                tabu.setPenalidad(5);
+                tabu.setPenalidad(10);
+                long tinicial = System.nanoTime();
                 tabu.search();
-            }                                   
-            
+                long tfinal = System.nanoTime();
+                System.out.println("Tiempo = "+((tfinal-tinicial)));
+            }                                               
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
-    }    
+    }
+
+    private static ArrayList<Ciudad> armaListaCiudadesReducidas(Envio envio) {
+        String cont1 = ((Ciudad)indiceCiudades.get(envio.getCiudadOrigen())).getContinente();
+        String cont2 = ((Ciudad)indiceCiudades.get(envio.getCiudadDestino())).getContinente();
+        ArrayList<Ciudad> listaReducida = new ArrayList<>();
+        for (int i=0;i<listaCiudades.size();i++){
+            if (cont1.equals(listaCiudades.get(i).getContinente())||cont2.equals(listaCiudades.get(i).getContinente())){
+                listaReducida.add(listaCiudades.get(i));
+            }
+        }
+        return listaReducida;
+    }
 }
