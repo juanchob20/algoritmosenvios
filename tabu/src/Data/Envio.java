@@ -12,6 +12,7 @@ public class Envio {
     private int ciudadOrigen;
     private int ciudadDestino;
     private int cantPaquetes;
+    private double tarifa;
 
     /**
      * @return the ciudadOrigen
@@ -53,5 +54,19 @@ public class Envio {
      */
     public void setCantPaquetes(int cantPaquetes) {
         this.cantPaquetes = cantPaquetes;
+    }
+
+    /**
+     * @return the tarifa
+     */
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    /**
+     * @param tarifa the tarifa to set
+     */
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
     }
 }

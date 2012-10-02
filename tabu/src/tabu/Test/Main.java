@@ -8,11 +8,10 @@ import Data.Ciudad;
 import Data.Envio;
 import Data.Vuelo;
 import Utils.ArchivoXML;
+import com.thoughtworks.xstream.XStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -43,7 +42,8 @@ public class Main {
             Envio envio = new Envio();
             envio.setCiudadOrigen(Integer.parseInt(envios.getElement(i,"codigoCiudadOrigen")));
             envio.setCiudadDestino(Integer.parseInt(envios.getElement(i,"codigoCiudadDestino")));
-            envio.setCantPaquetes(Integer.parseInt(envios.getElement(i,"cantidadPaquetes")));
+            envio.setCantPaquetes(Integer.parseInt(envios.getElement(i,"cantidadPaquetes")));   
+            envio.setTarifa(Double.parseDouble(envios.getElement(i,"tarifa")));
             listaEnvios.add(envio);
         }
     }
@@ -55,46 +55,31 @@ public class Main {
         for (int i=0;i<ciudades.getCantidadNodos();i++){
             Ciudad ciudad = new Ciudad(Integer.parseInt(ciudades.getElement(i,"codigo")),
                     ciudades.getElement(i, "siglas"),ciudades.getElement(i, "nombre"),
-                    ciudades.getElement(i, "continente"));            
+                    ciudades.getElement(i, "continente"));      
+            ciudad.setCosto(Integer.parseInt(ciudades.getElement(i, "costo")));
             listaCiudades.add(ciudad);
         }        
     }
-
-    private static MultiKeyMap armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {
+    
+    public static ArrayList<Vuelo> leerVuelos(String fileName) {        
+        ArrayList<Vuelo> vuelos = null;
+        try {
+            XStream xs = new XStream();
+            try (FileReader fr = new FileReader(fileName)) {
+                vuelos = (ArrayList<Vuelo>) xs.fromXML(fr);
+            }
+        } catch (IOException | ClassCastException e) {
+            System.out.println(e.toString());
+        }
+        return vuelos;
+    }
+    
+    private static MultiKeyMap armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {        
+        ArrayList<Vuelo> vuelos = leerVuelos("files\\vuelos\\vuelo"+n+".xml");
         MultiKeyMap matrizVuelos = new MultiKeyMap();
-        ArchivoXML vuelos = new ArchivoXML("files\\vuelos\\vuelo"+n+".xml");
-        vuelos.setListaNodos("simulador.Vuelo");
-        for (int i=0;i<vuelos.getCantidadNodos();i++){
-            String codVuelo = vuelos.getElement(i, "codVuelo");
-            int codigoCiudadOrigen = Integer.parseInt(vuelos.getElement(i, "codigoCiudadOrigen"));
-            int codigoCiudadDestino = Integer.parseInt(vuelos.getElement(i, "codigoCiudadDestino"));
-            Double costoPorPaquete = Double.parseDouble(vuelos.getElement(i, "costoPorPaquete"));
+        for (int i=0;i<vuelos.size();i++){  
+            Vuelo vuelo = vuelos.get(i);
             
-            String fp = vuelos.getElement(i, "FechaPartida");
-            Date FechaPartida;
-            SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
-            try {
-                FechaPartida = (Date) df.parse(fp);
-            } catch (ParseException e) {
-                FechaPartida = null;               
-            }
-             
-            String fll = vuelos.getElement(i, "fechaLlegada");
-            Date FechaLlegada;
-            df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
-            try {
-                FechaLlegada = (Date) df.parse(fll);
-            } catch (ParseException e) {
-                FechaLlegada = null;
-            }
-            
-            Vuelo vuelo = new Vuelo();
-            vuelo.setCodigoCiudadOrigen(codigoCiudadOrigen);
-            vuelo.setCodigoCiudadDestino(codigoCiudadDestino);
-            vuelo.setCostoPorPaquete(costoPorPaquete);
-            vuelo.setFechaPartida(FechaPartida);
-            vuelo.setFechaLlegada(FechaLlegada);
-            vuelo.setCodVuelo(codVuelo);            
             ArrayList<Vuelo> aux = (ArrayList<Vuelo>) matrizVuelos.get(vuelo.getCodigoCiudadOrigen(),
                     vuelo.getCodigoCiudadDestino());
             if (aux == null) {
@@ -105,41 +90,9 @@ public class Main {
                 aux.add(vuelo);
                 matrizVuelos.put(vuelo.getCodigoCiudadOrigen(), vuelo.getCodigoCiudadDestino(), aux);
             }        
-        }
+        }   
         return matrizVuelos;
-        
     }   
-    
-    
-//    private static ArrayList<Ciudad> getReducedList(Envio envio , int c, MultiKeyMap matrizVuelos, HashMap pila) {
-//        if (c == envio.getCiudadDestino()){
-//            ArrayList<Ciudad> solucion = new ArrayList<>();
-//            return solucion;
-//        } else {
-//            ArrayList<Ciudad> solucion = new ArrayList<>();
-//            boolean halloVuelo = false;
-//            for (MapIterator it = matrizVuelos.mapIterator(); it.hasNext();) {
-//                it.next();
-//                MultiKey mk = (MultiKey) it.getKey();
-//                int k1 = (int) mk.getKey(0);
-//                int k2 = (int) mk.getKey(1);
-//                if (k1 == c){
-//                    ArrayList<Ciudad> auxSolucion = getReducedList(envio, k2, (MultiKeyMap) matrizVuelos.clone(), pila);
-//                    if (auxSolucion==null){
-//                        continue;
-//                    }
-//                    else {
-//                        halloVuelo = true;
-//                        solucion.addAll(auxSolucion);                        
-//                    }
-//                }
-//            }
-//            if (halloVuelo == false) return null;
-//            solucion.add((Ciudad)indiceCiudades.get(c));
-//            if (envio.getCiudadOrigen()==c) solucion.add((Ciudad)indiceCiudades.get(envio.getCiudadDestino()));            
-//            return solucion;
-//        }                
-//    }
     
     public static void main(String[] args) {
         try {            
@@ -150,17 +103,17 @@ public class Main {
             while (it.hasNext()) {
                 Ciudad c = (Ciudad) it.next();
                 indiceCiudades.put(c.getCodigo(), c);
-            }                 
+            }                  
             for (int i = 0; i < listaEnvios.size(); i++) {
                 ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(i));
                 if (ciudadesReducidas.isEmpty() || ciudadesReducidas == null){
                     System.out.println("Verificar codigos de ciudades en el envio");
-                }
+                }                
                 MultiKeyMap matrizVuelos = armarMatrizVuelos(i+1);                 
                 TabuSearch tabu = new TabuSearch();                
                 tabu.setEnvio(listaEnvios.get(i));                
-                tabu.setListaCiudades(ciudadesReducidas);
-                tabu.setMatrizVuelos(matrizVuelos);
+                tabu.setListaCiudades(ciudadesReducidas);                
+                tabu.setMatrizVuelos(matrizVuelos);               
                 tabu.setNroIteraciones(100);
                 tabu.setCiudades(indiceCiudades);
                 tabu.setPenalidad(10);

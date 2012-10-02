@@ -11,7 +11,7 @@ import java.util.Date;
  * @author kat
  */
 public class Vuelo {
-   private String codVuelo;
+    private String codVuelo;
     private int codigoCiudadOrigen;
     private int codigoCiudadDestino;
     private int capacidadCarga;
@@ -137,6 +137,5 @@ public class Vuelo {
 
     public void setCodigoEstado(String codigoEstado) {
         this.codigoEstado = codigoEstado;
-    }
-    
+    }    
 }
