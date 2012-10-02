@@ -141,7 +141,7 @@ public class Algoritmo {
                 
             }
             
-            if ((existeSolucionParcial) && ((funcObjetivoSol(solucionFinal) >funcObjetivoSol(rutaSolucion) ))) {
+            if ((existeSolucionParcial) && ((funcObjetivoSol(solucionFinal) >funcObjetivoSol(rutaSolucion) ) &&(funcObjetivoSol(rutaSolucion)>0))) {
                 //descomentar el if para caso de contar solo con costo
             //if ((existeSolucionParcial) && ((solucionFinal.getCostoTotal() > rutaSolucion.getCostoTotal()))) {
                 //listaSolucionesParaTabu.add(rutaSolucion); 
@@ -278,7 +278,7 @@ public class Algoritmo {
              */
             if (rutaSolucion.getListaVuelos().isEmpty()){
                 if (rutaSolucion.getCantHorasActual() + listaVecino.
-                 get(i).getDuracion() < cantHorasMaxContinental ) {  
+                 get(i).getDuracion() < cantHorasMaxContinental && (funcObjetivoVuelo(listaVecino.get(i))>0)) {  
                     
                 listarcl.add(listaVecino.get(i));
                 }
@@ -289,8 +289,8 @@ public class Algoritmo {
                       //ESTA LINEA ESTA PARA METERLE HORAS  
                 (rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()-1).
                 getFechaLlegada().compareTo(listaVecino.get(i).getFechaPartida())==-1) 
-                && rutaSolucion.getCantHorasActual() + listaVecino.
-                get(i).getDuracion() < cantHorasMaxContinental ) {  
+                && (rutaSolucion.getCantHorasActual() + listaVecino.
+                get(i).getDuracion() < cantHorasMaxContinental )&& (funcObjetivoVuelo(listaVecino.get(i))>0) ){  
 //                 Con esto comparas fechas                     
 //                 (rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()).
 //                 getFechaLlegada().compareTo(listaVecino.get(i).getFechaPartida())==-1) 
