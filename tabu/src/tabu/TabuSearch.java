@@ -14,6 +14,7 @@ public class TabuSearch {
 
     private ArrayList<Ciudad> listaCiudades;
     private HashMap ciudades;
+    private HashMap indiceVuelos;
     private MultiKeyMap matrizVuelos;
     private HashMap indicesFor;
     private int contFor;
@@ -103,7 +104,7 @@ public class TabuSearch {
     }
 
     public ArrayList<Ciudad> search() {       
-        ArrayList<Ciudad> currSolution = getListaCiudades();
+        ArrayList<Ciudad> currSolution = getListaCiudades(); //obtieneSolucionInicial();
         Collections.shuffle(currSolution);
         tabuList = new TabuList();
         tabuList.setPenalidad(penalidad);
@@ -116,7 +117,7 @@ public class TabuSearch {
         int cont = 0;
         while(!halloSolValida){
             cont++;
-            if (cont == 10) break;
+            //if (cont == 10) break;
             for (int i = 0; i < getNroIteraciones(); i++) { 
                 //System.out.println("-- Iteracion "+i);
                 currSolution = getBestNeighbour(currSolution);         
@@ -285,6 +286,25 @@ public class TabuSearch {
             if (halloMenor == false) return null;
             else return primerVuelo;
         }        
+    }
+
+    private ArrayList<Ciudad> obtieneSolucionInicial() {        
+        
+        return null;
+    }
+
+    /**
+     * @return the indiceVuelos
+     */
+    public HashMap getIndiceVuelos() {
+        return indiceVuelos;
+    }
+
+    /**
+     * @param indiceVuelos the indiceVuelos to set
+     */
+    public void setIndiceVuelos(HashMap indiceVuelos) {
+        this.indiceVuelos = indiceVuelos;
     }
 
     public static class CustomComparator implements Comparator<Ciudad> {
