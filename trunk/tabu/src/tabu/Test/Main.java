@@ -9,7 +9,9 @@ import Data.Envio;
 import Data.Vuelo;
 import Utils.ArchivoXML;
 import com.thoughtworks.xstream.XStream;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -118,9 +120,15 @@ public class Main {
                 tabu.setCiudades(indiceCiudades);
                 tabu.setPenalidad(10);
                 long tinicial = System.nanoTime();
-                tabu.search();
+                ArrayList <Ciudad> solucion = tabu.search();
                 long tfinal = System.nanoTime();
-                System.out.println("Tiempo = "+((tfinal-tinicial)));
+                long tduracion = tfinal-tinicial;
+                System.out.println("Tiempo = " + tduracion);                
+                FileWriter fstream = new FileWriter("resultadosTabu.txt");
+                try (BufferedWriter out = new BufferedWriter(fstream)) {
+                    out.write(tabu.getObjectiveFunctionValue(solucion)+","+tduracion);
+                    out.close();
+                }          
             }                                               
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
