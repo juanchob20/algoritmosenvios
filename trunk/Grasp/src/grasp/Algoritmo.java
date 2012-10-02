@@ -10,8 +10,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -30,14 +32,14 @@ public class Algoritmo {
     private RutaSolucion solucionFinal;
     //PARAMETROS:
     //CON ESTO PRUEBAS EL ALGORITMO
-    private Ciudad ciudadInicio = new Ciudad(20, "C203", "C203", "CON2");
-    private Ciudad ciudadDestino = new Ciudad(1, "C219", "C219", "CON2");
+    private Ciudad ciudadInicio = new Ciudad(15, "C203", "C203", "CON2",10);
+    private Ciudad ciudadDestino = new Ciudad(1, "C219", "C219", "CON2", 5);
     private int cantidadPaquetes;
     private int tipoDestino;
     //CONSTANTES(PARTE DE LA CONFIGURACION):
-    public static long cantHorasMaxContinental = 24;
+    public static long cantHorasMaxContinental = 200; // esto se tiene que cambiar
     public static long cantHorasMaxInter = 48;
-    public static double alfa = 0.5;
+    public static double alfa = 0.6;
     public static int cantMaxVecinos = 15;
     public static int cantMaxCiudades = 100;
     public static int cantMaxVuelosPorArista = 20;
@@ -112,7 +114,7 @@ public class Algoritmo {
 //                    } catch (IOException e) {
 //                        System.out.println(e.toString());
 //                    }
-            
+//            
             
             if (solucionFinal == null && existeSolucionParcial){
                 //listaSolucionesParaTabu.add(rutaSolucion);
@@ -236,9 +238,9 @@ public class Algoritmo {
             else{
                 if (
                       //ESTA LINEA ESTA PARA METERLE HORAS  
-                /*(rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()-1).
+                (rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()-1).
                 getFechaLlegada().compareTo(listaVecino.get(i).getFechaPartida())==-1) 
-                && */rutaSolucion.getCantHorasActual() + listaVecino.
+                && rutaSolucion.getCantHorasActual() + listaVecino.
                 get(i).getDuracion() < cantHorasMaxContinental ) {  
 //                 Con esto comparas fechas                     
 //                 (rutaSolucion.getListaVuelos().get(rutaSolucion.getIndiceActual()).
@@ -276,7 +278,8 @@ public class Algoritmo {
         rutaSol.add(rcl.get(valorRandom), cantPaquetes, getListaCiudades());
         return rutaSol;
     }
-
+    
+     
     //GETS Y SETS
     /**
      * @return the estructuraVuelo
@@ -320,7 +323,7 @@ public class Algoritmo {
         ArrayList<Vuelo> vuelos = null;
         try {
             XStream xs = new XStream();
-            FileReader fr = new FileReader("vuelos.xml");
+            FileReader fr = new FileReader("vuelos Victor.xml");
             vuelos = (ArrayList<Vuelo>) xs.fromXML(fr);
             fr.close();
         } catch (IOException e) {

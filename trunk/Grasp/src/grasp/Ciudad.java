@@ -16,12 +16,14 @@ public class Ciudad {
     private String siglas;
     private String nombre;
     private String continente;
+    private int costo;
     
-    public Ciudad(int codigo, String siglas, String nombre, String continente){
+    public Ciudad(int codigo, String siglas, String nombre, String continente, int costo){
         this.codigo = codigo;
         this.siglas = siglas;
         this.nombre = nombre;
         this.continente = continente;
+        this.costo = costo;
     }
     
     public int getCodigo(){
@@ -38,7 +40,21 @@ public class Ciudad {
     }
     @Override
     public String toString() {
-        return "Ciudad{" + "codigo=" + codigo + ", siglas=" + siglas + ", nombre=" + nombre + ", continente=" + continente + '}';
+        return "Ciudad{" + "codigo=" + codigo + ", siglas=" + siglas + ", nombre=" + nombre + ", continente=" + continente + ", costo=" + getCosto()+'}';
+    }
+
+    /**
+     * @return the costo
+     */
+    public int getCosto() {
+        return costo;
+    }
+
+    /**
+     * @param costo the costo to set
+     */
+    public void setCosto(int costo) {
+        this.costo = costo;
     }
 }
 
