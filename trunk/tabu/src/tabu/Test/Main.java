@@ -106,14 +106,15 @@ public class Main {
                 Ciudad c = (Ciudad) it.next();
                 indiceCiudades.put(c.getCodigo(), c);
             }                  
-            for (int i = 0; i < listaEnvios.size(); i++) {
-                ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(i));
+            
+            for (int i = 0; i < 10; i++) {
+                ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(0));
                 if (ciudadesReducidas.isEmpty() || ciudadesReducidas == null){
                     System.out.println("Verificar codigos de ciudades en el envio");
                 }                
-                MultiKeyMap matrizVuelos = armarMatrizVuelos(i+1);                 
+                MultiKeyMap matrizVuelos = armarMatrizVuelos(1);                 
                 TabuSearch tabu = new TabuSearch();                
-                tabu.setEnvio(listaEnvios.get(i));                
+                tabu.setEnvio(listaEnvios.get(0));                
                 tabu.setListaCiudades(ciudadesReducidas);                
                 tabu.setMatrizVuelos(matrizVuelos);               
                 tabu.setNroIteraciones(100);

@@ -44,7 +44,7 @@ public class TabuSearch {
         Vuelo v1 = obtieneMenor(null,listaV1);
         c1 = c2;
         costo += v1.getCostoPorPaquete()*cantPaquetes;
-        //tiempoTotal += v1.getDuracion();
+        tiempoTotal += v1.getDuracion();
         
         for (int i=2; i<listaAux.size(); i++){
             c2 = listaAux.get(i);
@@ -52,15 +52,15 @@ public class TabuSearch {
             if (listaV2 == null || listaV2.isEmpty()) return Math.random()*100.0+10000.0;
             Vuelo v2 = obtieneMenor(v1,listaV2);
             if (v2 == null) return Math.random()*100.0+10000.0;  
-            //long tiempoAlmacen = v2.getFechaPartida().getTime() - v1.getFechaLlegada().getTime();           
-            costo += v2.getCostoPorPaquete()*cantPaquetes;// + (tiempoAlmacen/(1000*60*60))*c2.getCosto();
-            //tiempoTotal = tiempoTotal + v2.getDuracion() + (tiempoAlmacen/(1000*60*60));
+            long tiempoAlmacen = v2.getFechaPartida().getTime() - v1.getFechaLlegada().getTime();           
+            costo += v2.getCostoPorPaquete()*cantPaquetes + (tiempoAlmacen/(1000*60*60))*c2.getCosto();
+            tiempoTotal = tiempoTotal + v2.getDuracion() + (tiempoAlmacen/(1000*60*60));
             v1 = v2;
             c1 = c2;            
         }
         
-        //if (envio.getTarifa()<=costo) return Math.random()*100.0+10000.0;
-        return costo;//*tiempoTotal/(envio.getTarifa()-costo);
+        if (envio.getTarifa()<=costo) return Math.random()*100.0+10000.0;
+        return costo*tiempoTotal/(envio.getTarifa()-costo);
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution) {
