@@ -21,8 +21,12 @@ public class TabuSearch {
     private int penalidad;
     private Envio envio;
     private TabuList tabuList;
+    private double bestCosto;
+    private ArrayList<Vuelo> bestFlightSolution = new ArrayList<>();
 
-    public Double getObjectiveFunctionValue(ArrayList<Ciudad> solution){              
+    public Double getObjectiveFunctionValue(ArrayList<Ciudad> solution, ArrayList<Vuelo> solucionVuelos){  
+        solucionVuelos.clear();
+        
         Ciudad ciudadOrigen = (Ciudad) getCiudades().get(envio.getCiudadOrigen());
         Ciudad ciudadDestino = (Ciudad) getCiudades().get(envio.getCiudadDestino());                        
         int cantPaquetes = envio.getCantPaquetes();
@@ -30,7 +34,6 @@ public class TabuSearch {
         int indexOrigen = solution.indexOf(ciudadOrigen);                
         int indexDestino = solution.indexOf(ciudadDestino);                
         
-        Double tiempoTotal = 0.0;
         Double costo = 0.0;
         
         if (indexOrigen > indexDestino) return Math.random()*100.0+10000.0;
@@ -42,31 +45,37 @@ public class TabuSearch {
         ArrayList<Vuelo> listaV1 = (ArrayList<Vuelo>) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
         if (listaV1 == null || listaV1.isEmpty()) return Math.random()*100.0+10000.0;
         Vuelo v1 = obtieneMenor(null,listaV1);
+        if (v1 == null) return Math.random()*100.0+10000.0;
+        solucionVuelos.add(v1);
         c1 = c2;
         costo += v1.getCostoPorPaquete()*cantPaquetes;
-        tiempoTotal += v1.getDuracion();
-        
+
         for (int i=2; i<listaAux.size(); i++){
             c2 = listaAux.get(i);
             ArrayList<Vuelo> listaV2 = (ArrayList<Vuelo>) matrizVuelos.get(c1.getCodigo(), c2.getCodigo());
             if (listaV2 == null || listaV2.isEmpty()) return Math.random()*100.0+10000.0;
             Vuelo v2 = obtieneMenor(v1,listaV2);
-            if (v2 == null) return Math.random()*100.0+10000.0;  
-            long tiempoAlmacen = v2.getFechaPartida().getTime() - v1.getFechaLlegada().getTime();           
-            costo += v2.getCostoPorPaquete()*cantPaquetes + (tiempoAlmacen/(1000*60*60))*c2.getCosto();
-            tiempoTotal = tiempoTotal + v2.getDuracion() + (tiempoAlmacen/(1000*60*60));
+            if (v2 == null) return Math.random()*100.0+10000.0;
+            solucionVuelos.add(v2);
+            long tiempoAlmacen = v2.getFechaPartida().getTime() - v1.getFechaLlegada().getTime();     
+            double horasAlmacen = ((double)tiempoAlmacen)/(1000*60*60);
+            double horasAlmacenRounded = Math.round(horasAlmacen);
+            if (horasAlmacenRounded <horasAlmacen) horasAlmacenRounded += 1.0;
+            costo += v2.getCostoPorPaquete()*cantPaquetes + horasAlmacenRounded*c1.getCosto();
             v1 = v2;
             c1 = c2;            
         }
         
         if (envio.getTarifa()<=costo) return Math.random()*100.0+10000.0;
-        return costo*tiempoTotal/(envio.getTarifa()-costo);
+        return costo;
     }
      
     public ArrayList<Ciudad> getBestNeighbour(ArrayList<Ciudad> initSolution) {
 
         ArrayList<Ciudad> bestSolution = (ArrayList<Ciudad>) initSolution.clone();
-        Double bestCost = getObjectiveFunctionValue(bestSolution);
+        ArrayList<Vuelo> bestVuelos = new ArrayList<>();
+        Double bestCost = getObjectiveFunctionValue(bestSolution,bestVuelos);
+        
         //System.out.println("---- El costo inicial del vecindario es "+bestCost);
         
         int city1 = 0;
@@ -77,7 +86,7 @@ public class TabuSearch {
             for (int j = i+1; j < bestSolution.size(); j++) {                                              
                 cont++;
                 ArrayList<Ciudad> newBestSol = swapOperator(i, j, initSolution); //Try swapping cities i and j
-                double newBestCost = getObjectiveFunctionValue(newBestSol);
+                double newBestCost = getObjectiveFunctionValue(newBestSol,bestVuelos);
                 //System.out.println("------ El costo de la solucion "+cont+" del vecindario es "+newBestCost);                
                 if ((newBestCost < bestCost) && !tabuList.isTabuMove(i,j)) { 
                     city1 = i;
@@ -111,12 +120,13 @@ public class TabuSearch {
     public ArrayList<Ciudad> search() {       
         ArrayList<Ciudad> currSolution = getListaCiudades(); //obtieneSolucionInicial();
         Collections.shuffle(currSolution);
+        ArrayList<Vuelo> solucionVuelos = new ArrayList<>();
         tabuList = new TabuList();
         tabuList.setPenalidad(penalidad);
         tabuList.setSize(listaCiudades.size());
         
-        ArrayList<Ciudad> bestSolution = (ArrayList<Ciudad>) currSolution.clone();
-        Double bestCost = getObjectiveFunctionValue(bestSolution);
+        ArrayList<Ciudad> bestCitiesSolution = (ArrayList<Ciudad>) currSolution.clone();
+        bestCosto = getObjectiveFunctionValue(bestCitiesSolution, solucionVuelos);
         //System.out.println("El costo de la solucion inicial es "+ bestCost);
         boolean halloSolValida = false;
         int cont = 0;
@@ -126,17 +136,19 @@ public class TabuSearch {
             for (int i = 0; i < getNroIteraciones(); i++) { 
                 //System.out.println("-- Iteracion "+i);
                 currSolution = getBestNeighbour(currSolution);         
-                Double currCost = getObjectiveFunctionValue(currSolution);
+                Double currCost = getObjectiveFunctionValue(currSolution,solucionVuelos);
                 //System.out.println("-- El costo del vecindario "+i+" es "+ currCost);
-                if (currCost < bestCost) {
-                    bestSolution = (ArrayList<Ciudad>) currSolution.clone();      
-                    bestCost = getObjectiveFunctionValue(bestSolution);
+                if (currCost < bestCosto) {
+                    bestCitiesSolution = (ArrayList<Ciudad>) currSolution.clone();      
+                    bestCosto = currCost;
+                    bestFlightSolution.clear();
+                    bestFlightSolution.addAll(solucionVuelos);
                 }
             }
-            if (bestCost < 10000.0) halloSolValida = true;
+            if (bestCosto < 10000.0) halloSolValida = true;
         }
-        System.out.println("El mejor costo es "+bestCost);
-        return bestSolution;
+        System.out.println("El mejor costo es "+bestCosto);
+        return bestCitiesSolution;
     }
 
     /**
@@ -291,6 +303,34 @@ public class TabuSearch {
             if (halloMenor == false) return null;
             else return primerVuelo;
         }        
+    }
+
+    /**
+     * @return the bestCosto
+     */
+    public double getBestCosto() {
+        return bestCosto;
+    }
+
+    /**
+     * @param bestCosto the bestCosto to set
+     */
+    public void setBestCosto(double bestCosto) {
+        this.bestCosto = bestCosto;
+    }
+
+    /**
+     * @return the bestFlightSolution
+     */
+    public ArrayList<Vuelo> getBestFlightSolution() {
+        return bestFlightSolution;
+    }
+
+    /**
+     * @param bestFlightSolution the bestFlightSolution to set
+     */
+    public void setBestFlightSolution(ArrayList<Vuelo> bestFlightSolution) {
+        this.bestFlightSolution = bestFlightSolution;
     }
 
     public static class CustomComparator implements Comparator<Ciudad> {

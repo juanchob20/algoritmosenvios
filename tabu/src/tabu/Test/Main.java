@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -117,17 +118,33 @@ public class Main {
                 tabu.setEnvio(listaEnvios.get(0));                
                 tabu.setListaCiudades(ciudadesReducidas);                
                 tabu.setMatrizVuelos(matrizVuelos);               
-                tabu.setNroIteraciones(100);
+                tabu.setNroIteraciones(1000);
                 tabu.setCiudades(indiceCiudades);
                 tabu.setPenalidad(10);
+                
                 long tinicial = System.nanoTime();
-                ArrayList <Ciudad> solucion = tabu.search();
+                
+                tabu.search();
+                
                 long tfinal = System.nanoTime();
                 long tduracion = tfinal-tinicial;
-                System.out.println("Tiempo = " + tduracion);                
+                
+                System.out.println("Tiempo = " + tduracion);
+              
+                XStream xs = new XStream();
+                Scanner in = new Scanner(System.in);
+                String temp = xs.toXML(tabu.getBestFlightSolution());
+                try {
+                    FileWriter fw = new FileWriter("Solucion.xml");
+                    fw.write(temp);
+                    fw.close();
+                } catch (IOException e) {
+                    System.out.println(e.toString());
+                }
+
                 FileWriter fstream = new FileWriter("resultadosTabu.txt");
                 try (BufferedWriter out = new BufferedWriter(fstream)) {
-                    out.write(tabu.getObjectiveFunctionValue(solucion)+","+tduracion);
+                    out.write(tabu.getBestCosto()+","+tduracion);
                     out.close();
                 }          
             }                                               

@@ -39,19 +39,25 @@ public class RutaSolucion {
  
  
  public void add(Vuelo vuelo, int cantidadPaquetes, ArrayList<Ciudad> listaCiudades){
-     
+     boolean provisional=false;
      getListaVuelos().add(vuelo);
-     
+
      if (indiceActual ==0){
          costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
           costoTotal+=  ciudadActual.getCosto();
          this.cantHorasActual+= vuelo.getDuracion();
      }
      else{
-         long diff=(vuelo.getFechaPartida().getTime()-getListaVuelos().get(indiceActual-1).getFechaLlegada().getTime())/(60*60 * 1000);
+         
+         if (vuelo.getCodVuelo().equals("VUE00356")) {
+             provisional = true;}
+         
+         double diff=((double)(vuelo.getFechaPartida().getTime()-getListaVuelos().get(indiceActual-1).getFechaLlegada().getTime())/(60*60 * 1000));
+         double diffRounded = Math.round(diff);
+         if (diffRounded < diff) diffRounded+=1.0;
          costoTotal+=vuelo.getCostoPorPaquete()*cantidadPaquetes;
-         costoTotal+=  diff *ciudadActual.getCosto();
-         this.cantHorasActual+= (diff +vuelo.getDuracion());
+         costoTotal+=  diffRounded*ciudadActual.getCosto();
+         this.cantHorasActual+= (diffRounded +vuelo.getDuracion());
      }
      indiceActual++;
      
