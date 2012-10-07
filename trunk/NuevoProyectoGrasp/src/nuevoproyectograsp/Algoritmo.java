@@ -82,7 +82,7 @@ public class Algoritmo {
         
         resulExp = new resultadoExperimentación();
         long start = System.nanoTime(); 
-        while (i < 2000) { /*Condicion de Parada, iteraciones del grasp*/
+        while (i < 1000) { /*Condicion de Parada, iteraciones del grasp*/
             boolean hayRcl =false ;
             boolean existeSolucionParcial=false;
             rcl = null;
@@ -382,7 +382,7 @@ public class Algoritmo {
         ArrayList<Vuelo> vuelos = null;
         try {
             XStream xs = new XStream();
-            FileReader fr = new FileReader("vuelos Victor.xml");
+            FileReader fr = new FileReader("vuelos.xml");
             vuelos = (ArrayList<Vuelo>) xs.fromXML(fr);
             fr.close();
         } catch (IOException e) {
