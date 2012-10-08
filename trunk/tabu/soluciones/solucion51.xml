@@ -1,0 +1,24 @@
+<list>
+  <Data.Vuelo>
+    <codVuelo>VUE00865</codVuelo>
+    <codigoCiudadOrigen>5</codigoCiudadOrigen>
+    <codigoCiudadDestino>31</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-10-08 05:04:00.915 UTC</FechaPartida>
+    <fechaLlegada>2012-10-08 12:04:00.915 UTC</fechaLlegada>
+    <duracion>7.0</duracion>
+    <costoPorPaquete>8.0</costoPorPaquete>
+  </Data.Vuelo>
+  <Data.Vuelo>
+    <codVuelo>VUE00351</codVuelo>
+    <codigoCiudadOrigen>31</codigoCiudadOrigen>
+    <codigoCiudadDestino>23</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-10-08 17:04:00.908 UTC</FechaPartida>
+    <fechaLlegada>2012-10-08 20:04:00.908 UTC</fechaLlegada>
+    <duracion>3.0</duracion>
+    <costoPorPaquete>4.0</costoPorPaquete>
+  </Data.Vuelo>
+</list>
