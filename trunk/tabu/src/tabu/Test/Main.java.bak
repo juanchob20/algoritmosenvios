@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -78,7 +77,7 @@ public class Main {
     }
     
     private static MultiKeyMap armarMatrizVuelos(int n) throws ParserConfigurationException, SAXException, IOException {        
-        ArrayList<Vuelo> vuelos = leerVuelos("files\\vuelos\\vuelos"+n+".xml");
+        ArrayList<Vuelo> vuelos = leerVuelos("files\\vuelos\\vuelo"+n+".xml");
         MultiKeyMap matrizVuelos = new MultiKeyMap();
         for (int i=0;i<vuelos.size();i++){  
             Vuelo vuelo = vuelos.get(i);
@@ -98,60 +97,40 @@ public class Main {
     }   
     
     public static void main(String[] args) {
-        try {
+        try {            
             cargaEnvios();
-            armarListaCiudades();
+            armarListaCiudades();  
             indiceCiudades = new HashMap();
             Iterator it = listaCiudades.listIterator();
             while (it.hasNext()) {
                 Ciudad c = (Ciudad) it.next();
                 indiceCiudades.put(c.getCodigo(), c);
-            }
-
-            for (int j = 0; j < 45; j++) {
-                FileWriter fstream = new FileWriter("resultados//resultadosTabu"+(j+1)+".txt");
-                BufferedWriter out = new BufferedWriter(fstream);
-                for (int i = 0; i < 10; i++) {
-                    ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(0));
-                    if (ciudadesReducidas.isEmpty() || ciudadesReducidas == null) {
-                        System.out.println("Verificar codigos de ciudades en el envio");
-                    }
-                    MultiKeyMap matrizVuelos = armarMatrizVuelos(j+1);
-                    TabuSearch tabu = new TabuSearch();
-                    tabu.setEnvio(listaEnvios.get(0));
-                    tabu.setListaCiudades(ciudadesReducidas);
-                    tabu.setMatrizVuelos(matrizVuelos);
-                    tabu.setNroIteraciones(100);
-                    tabu.setCiudades(indiceCiudades);
-                    tabu.setPenalidad(10);
-
-                    long tinicial = System.nanoTime();
-
-                    ArrayList <Ciudad> solucion = tabu.search();
-
-                    long tfinal = System.nanoTime();
-                    long tduracion = tfinal - tinicial;
-
-                    System.out.println("Tiempo = " + tduracion);
-
-                    XStream xs = new XStream();
-                    String temp = xs.toXML(tabu.getBestFlightSolution());
-                    try {
-                        try (FileWriter fw = new FileWriter("soluciones//solucion"+(j+1)+".xml")) {
-                            fw.write(temp);
-                        }
-                    } catch (IOException e) {
-                        System.out.println(e.toString());
-                    }
-                    
-                    if (solucion == null) {
-                        out.append("No se encontro solucion," + tduracion + "\n");
-                    } else {
-                        out.append(tabu.getBestCosto() + "," + tduracion + "\n");
-                    }                    
-                }
-                out.close();
-            }                                       
+            }                  
+            
+            for (int i = 0; i < 10; i++) {
+                ArrayList<Ciudad> ciudadesReducidas = armaListaCiudadesReducidas(listaEnvios.get(0));
+                if (ciudadesReducidas.isEmpty() || ciudadesReducidas == null){
+                    System.out.println("Verificar codigos de ciudades en el envio");
+                }                
+                MultiKeyMap matrizVuelos = armarMatrizVuelos(1);                 
+                TabuSearch tabu = new TabuSearch();                
+                tabu.setEnvio(listaEnvios.get(0));                
+                tabu.setListaCiudades(ciudadesReducidas);                
+                tabu.setMatrizVuelos(matrizVuelos);               
+                tabu.setNroIteraciones(100);
+                tabu.setCiudades(indiceCiudades);
+                tabu.setPenalidad(10);
+                long tinicial = System.nanoTime();
+                ArrayList <Ciudad> solucion = tabu.search();
+                long tfinal = System.nanoTime();
+                long tduracion = tfinal-tinicial;
+                System.out.println("Tiempo = " + tduracion);                
+                FileWriter fstream = new FileWriter("resultadosTabu.txt");
+                try (BufferedWriter out = new BufferedWriter(fstream)) {
+                    out.write(tabu.getObjectiveFunctionValue(solucion)+","+tduracion);
+                    out.close();
+                }          
+            }                                               
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
