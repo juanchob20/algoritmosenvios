@@ -2,7 +2,7 @@
   <simulador.Envio>
     <codigoCiudadOrigen>5</codigoCiudadOrigen>
     <codigoCiudadDestino>23</codigoCiudadDestino>
-    <cantidadPaquetes>5</cantidadPaquetes>
+    <cantidadPaquetes>1</cantidadPaquetes>
     <tarifa>200.0</tarifa>
   </simulador.Envio>
 </list>
