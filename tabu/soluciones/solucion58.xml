@@ -1,0 +1,13 @@
+<list>
+  <Data.Vuelo>
+    <codVuelo>VUE00889</codVuelo>
+    <codigoCiudadOrigen>5</codigoCiudadOrigen>
+    <codigoCiudadDestino>23</codigoCiudadDestino>
+    <capacidadCarga>300</capacidadCarga>
+    <capacidadDisponible>300</capacidadDisponible>
+    <FechaPartida>2012-10-08 01:04:01.758 UTC</FechaPartida>
+    <fechaLlegada>2012-10-08 08:04:01.758 UTC</fechaLlegada>
+    <duracion>7.0</duracion>
+    <costoPorPaquete>8.0</costoPorPaquete>
+  </Data.Vuelo>
+</list>
