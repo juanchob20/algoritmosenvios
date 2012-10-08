@@ -17,7 +17,14 @@ public class NuevoProyectoGrasp {
      */
     public static void main(String[] args) throws IOException {
            // TODO code application logic here
-        Algoritmo grasp = new Algoritmo();
-        grasp.ejecutarAlgoritmo();
+        
+        for (int i=1; i<=45;i++){
+            System.out.println("Iteracion "+i);
+            Algoritmo grasp = new Algoritmo();
+            grasp.leerCiudades();
+            grasp.leerVuelos(i);
+            grasp.rellenarVuelos();
+            grasp.ejecutarAlgoritmo(i);
+        }
     }
 }
